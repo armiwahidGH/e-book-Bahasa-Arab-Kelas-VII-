@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Tengah Semester (UTS) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --success: #4CAF50;
+            --error: #F44336;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .exam-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 10, 0.5) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exam-header::before {
+            content: '📜';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.05;
+            top: -20px;
+            right: -20px;
+        }
+
+        .exam-badge {
+            display: inline-block;
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .exam-header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .exam-header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .exam-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .exam-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .exam-meta-item strong { color: var(--gold-primary); }
+
+        /* Student Info Form */
+        .student-info {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .student-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+
+        .form-group label {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-primary);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Section */
+        .section-block {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            flex-shrink: 0;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin: 0;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Question */
+        .question {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover { border-color: rgba(212, 175, 55, 0.3); }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-number {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.6;
+            padding-top: 0.3rem;
+        }
+
+        .narrative-box {
+            background: rgba(212, 175, 55, 0.05);
+            border-left: 3px solid var(--gold-primary);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            margin: 0.8rem 0;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            line-height: 2;
+        }
+
+        /* Options */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .option input[type="radio"], .option input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%; /* Checkbox will be square via JS/CSS trick if needed, but keeping round for consistency or use square for checkbox */
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .option input[type="checkbox"] {
+            border-radius: 4px;
+        }
+
+        .option input[type="radio"]:checked, .option input[type="checkbox"]:checked {
+            background: var(--gold-primary);
+        }
+
+        .option input[type="radio"]:checked::after, .option input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+        }
+
+        .option label {
+            cursor: pointer;
+            color: var(--text-secondary);
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .option:has(input:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .option:has(input:checked) label {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Matching & True/False Specifics */
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .tf-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tf-btn {
+            flex: 1;
+            padding: 0.8rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tf-btn.selected-true {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .tf-btn.selected-false {
+            background: rgba(244, 67, 54, 0.2);
+            border-color: var(--error);
+            color: var(--error);
+        }
+
+        /* Essay */
+        .essay-textarea {
+            width: 100%;
+            min-height: 120px;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+            margin-top: 0.8rem;
+        }
+
+        .essay-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 10, 0.5) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+        }
+
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Result Modal */
+        .result-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .result-modal.active { display: flex; }
+
+        .result-content {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-display {
+            font-size: 4rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+        }
+
+        .close-modal {
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .exam-header h1 { font-size: 1.6rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .matching-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Ujian Tengah Semester
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        
+        <!-- Exam Header -->
+        <div class="exam-header">
+            <span class="exam-badge">PENILAIAN SUMATIF</span>
+            <h1>Ujian Tengah Semester (UTS)<br><span style="font-size: 0.6em; color: var(--text-secondary);">Bahasa Arab Kelas VII</span></h1>
+            <p class="subtitle">Materi: Pertemuan 1 s.d. 6 (Al-Madrasah s.d. Al-A'yad)</p>
+            <div class="exam-meta">
+                <div class="exam-meta-item">
+                    <span>📝</span>
+                    <span><strong>35 Soal</strong> (PG, Kompleks, B/S, Menjodohkan, Esai)</span>
+                </div>
+                <div class="exam-meta-item">
+                    <span>⏱️</span>
+                    <span><strong>90 Menit</strong></span>
+                </div>
+                <div class="exam-meta-item">
+                    <span>🎯</span>
+                    <span><strong>KKM:</strong> 75</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Info -->
+        <div class="student-info">
+            <h3>👤 Identitas Siswa</h3>
+            <form id="studentForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nis">NIS (Nomor Induk Siswa)</label>
+                        <input type="text" id="nis" name="nis" placeholder="Masukkan NIS" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kelas">Kelas</label>
+                        <select id="kelas" name="kelas" required>
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="VII-A">VII-A</option>
+                            <option value="VII-B">VII-B</option>
+                            <option value="VII-C">VII-C</option>
+                            <option value="VII-D">VII-D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Ujian</label>
+                        <input type="date" id="tanggal" name="tanggal" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bagian I: Pilihan Ganda HOTS -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">I</div>
+                <div>
+                    <h2>Pilihan Ganda (HOTS)</h2>
+                    <p>Pilih satu jawaban yang paling tepat berdasarkan analisis narasi atau kasus. (Bobot: 2 poin per soal)</p>
+                </div>
+            </div>
+
+            <!-- Soal 1 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question-text">
+                        <div class="narrative-box">
+                            Ahmad sedang menunjukkan ruang baru di sekolahnya kepada teman barunya dari luar negeri. Ia menunjuk ke sebuah ruangan besar yang penuh dengan buku-buku dan meja baca.
+                        </div>
+                        Kalimat bahasa Arab yang paling tepat diucapkan Ahmad untuk menjelaskan ruangan tersebut adalah...
+                    </div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"><label>هَذَا الْمَلْعَبُ كَبِيْرٌ</label></label>
+                    <label class="option"><input type="radio" name="q1" value="b"><label>هَذِهِ الْمَكْتَبَةُ وَاسِعَةٌ</label></label>
+                    <label class="option"><input type="radio" name="q1" value="c"><label>ذَلِكَ الْمَسْجِدُ جَمِيْلٌ</label></label>
+                    <label class="option"><input type="radio" name="q1" value="d"><label>تِلْكَ الْغُرْفَةُ صَغِيْرَةٌ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question-text">
+                        <div class="narrative-box">
+                            Perhatikan denah rumah Fatimah berikut:<br>
+                            [ Kamar Tidur ] — [ Ruang Tamu ] — [ Dapur ]<br>
+                            Jika seseorang berdiri di Ruang Tamu dan ingin ke Dapur, ia harus berjalan ke arah belakang.
+                        </div>
+                        Preposisi tempat yang tepat untuk melengkapi kalimat: "الْمَطْبَخُ ___ غُرْفَةِ الْجُلُوسِ" adalah...
+                    </div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"><label>أَمَامَ</label></label>
+                    <label class="option"><input type="radio" name="q2" value="b"><label>فِي</label></label>
+                    <label class="option"><input type="radio" name="q2" value="c"><label>خَلْفَ</label></label>
+                    <label class="option"><input type="radio" name="q2" value="d"><label>عَلَى</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 3 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question-text">
+                        <div class="narrative-box">
+                            Dalam sebuah wawancara kelas, Budi mengatakan bahwa ia sangat menikmati aktivitas membaca novel sejarah di waktu luangnya, sementara temannya lebih suka bermain sepak bola.
+                        </div>
+                        Ungkapan yang paling sesuai untuk menyatakan hobi Budi adalah...
+                    </div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a"><label>أُحِبُّ كُرَةَ الْقَدَمِ</label></label>
+                    <label class="option"><input type="radio" name="q3" value="b"><label>أَسْتَمْتِعُ بِقِرَاءَةِ الْقَصَصِ</label></label>
+                    <label class="option"><input type="radio" name="q3" value="c"><label>أَلْعَبُ مَعَ أَصْدِقَائِي</label></label>
+                    <label class="option"><input type="radio" name="q3" value="d"><label>أُشَاهِدُ التِّلْفَازَ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 4 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question-text">
+                        <div class="narrative-box">
+                            Seorang siswa mengeluh kepada guru BP: "Saya sulit tidur malam karena kepala saya sering berdenyut-denyut sakit, dan badan saya terasa panas."
+                        </div>
+                        Diagnosis awal keluhan kesehatan siswa tersebut dalam bahasa Arab adalah...
+                    </div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"><label>عِنْدِي أَلَمُ الْبَطْنِ</label></label>
+                    <label class="option"><input type="radio" name="q4" value="b"><label>عِنْدِي صُدَاعٌ وَحُمَّى</label></label>
+                    <label class="option"><input type="radio" name="q4" value="c"><label>عِنْدِي سُعَالٌ وَزُكَامٌ</label></label>
+                    <label class="option"><input type="radio" name="q4" value="d"><label>عِنْدِي وَجَعُ الْأَسْنَانِ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 5 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question-text">
+                        <div class="narrative-box">
+                            Pada hari raya Idul Fitri, keluarga Pak Hasan berkumpul. Anak-anak saling bersalaman dan meminta maaf. Suasana sangat hangat dan penuh keberkahan.
+                        </div>
+                        Ungkapan doa yang paling tepat diucapkan oleh anak kepada orang tua dalam konteks ini adalah...
+                    </div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"><label>كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ</label></label>
+                    <label class="option"><input type="radio" name="q5" value="b"><label>رَمَضَانُ مُبَارَكٌ</label></label>
+                    <label class="option"><input type="radio" name="q5" value="c"><label>سَنَةٌ سَعِيْدَةٌ</label></label>
+                    <label class="option"><input type="radio" name="q5" value="d"><label>صَبَاحُ الْخَيْرِ</label></label>
+                </div>
+            </div>
+
+             <!-- Soal 6-10 (Singkat untuk efisiensi kode, pola sama) -->
+             <div class="question">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question-text">Manakah kalimat yang <strong>SALAH</strong> secara tata bahasa (Qawaid) terkait penggunaan Isim Isyarah?</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"><label>هَذَا كِتَابٌ</label></label>
+                    <label class="option"><input type="radio" name="q6" value="b"><label>هَذِهِ مِسْطَرَةٌ</label></label>
+                    <label class="option"><input type="radio" name="q6" value="c"><label>ذَلِكَ قَلَمٌ</label></label>
+                    <label class="option"><input type="radio" name="q6" value="d"><label>تِلْكَ بَابٌ</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question-text">Jika kamu ingin mengatakan "Kulkas itu ada di dapur", maka susunan kalimat yang benar adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"><label>الثَّلَّاجَةُ فِي الْمَطْبَخِ</label></label>
+                    <label class="option"><input type="radio" name="q7" value="b"><label>الْمَطْبَخُ فِي الثَّلَّاجَةِ</label></label>
+                    <label class="option"><input type="radio" name="q7" value="c"><label>الثَّلَّاجَةُ عَلَى الْغُرْفَةِ</label></label>
+                    <label class="option"><input type="radio" name="q7" value="d"><label>الْمَطْبَخُ أَمَامَ الثَّلَّاجَةِ</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question-text">Perhatikan Fi'il Mudhari': يَكْتُبُ (Dia laki-laki menulis). Jika subjeknya diubah menjadi "Kami", maka bentuk fi'ilnya menjadi...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"><label>أَكْتُبُ</label></label>
+                    <label class="option"><input type="radio" name="q8" value="b"><label>تَكْتُبُ</label></label>
+                    <label class="option"><input type="radio" name="q8" value="c"><label>نَكْتُبُ</label></label>
+                    <label class="option"><input type="radio" name="q8" value="d"><label>يَكْتُبُوْنَ</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question-text">Dalam adab berobat Islam, selain minum obat, hal spiritual yang sangat dianjurkan untuk mempercepat kesembuhan adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a"><label>Tidur seharian</label></label>
+                    <label class="option"><input type="radio" name="q9" value="b"><label>Berdoa dan bersabar</label></label>
+                    <label class="option"><input type="radio" name="q9" value="c"><label>Makan makanan pedas</label></label>
+                    <label class="option"><input type="radio" name="q9" value="d"><label>Bekerja keras</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question-text">Fi'il Madhi dari kata زَارَ (mengunjungi) jika subjeknya "Anta" (Kamu laki-laki) adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a"><label>زَارَ</label></label>
+                    <label class="option"><input type="radio" name="q10" value="b"><label>زُرْتَ</label></label>
+                    <label class="option"><input type="radio" name="q10" value="c"><label>زَرْتُ</label></label>
+                    <label class="option"><input type="radio" name="q10" value="d"><label>يَزُوْرُ</label></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bagian II: Pilihan Ganda Kompleks -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">II</div>
+                <div>
+                    <h2>Pilihan Ganda Kompleks</h2>
+                    <p>Pilih <strong>LEBIH DARI SATU</strong> jawaban yang benar. (Bobot: 3 poin per soal)</p>
+                </div>
+            </div>
+
+            <!-- Soal 11 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">11</div>
+                    <div class="question-text">Manakah di bawah ini yang termasuk kosakata <strong>bagian rumah</strong>? (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q11" value="a"><label>الْمَطْبَخُ (Dapur)</label></label>
+                    <label class="option"><input type="checkbox" name="q11" value="b"><label>الْمَلْعَبُ (Lapangan)</label></label>
+                    <label class="option"><input type="checkbox" name="q11" value="c"><label>الْحَمَّامُ (Kamar Mandi)</label></label>
+                    <label class="option"><input type="checkbox" name="q11" value="d"><label>الْفَصْلُ (Kelas)</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 12 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">12</div>
+                    <div class="question-text">Pilihlah ungkapan yang tepat untuk menyatakan <strong>kesukaan/hobi</strong>! (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q12" value="a"><label>أُحِبُّ السِّبَاحَةَ</label></label>
+                    <label class="option"><input type="checkbox" name="q12" value="b"><label>أَنَا طَالِبٌ</label></label>
+                    <label class="option"><input type="checkbox" name="q12" value="c"><label>أُسْتَمْتِعُ بِالرِّسْمِ</label></label>
+                    <label class="option"><input type="checkbox" name="q12" value="d"><label>هَذَا بَيْتِي</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 13 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">13</div>
+                    <div class="question-text">Manakah pasangan kata dan arti yang <strong>BENAR</strong>? (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q13" value="a"><label>الْعَيْنُ = Telinga</label></label>
+                    <label class="option"><input type="checkbox" name="q13" value="b"><label>الرَّأْسُ = Kepala</label></label>
+                    <label class="option"><input type="checkbox" name="q13" value="c"><label>الْيَدُ = Kaki</label></label>
+                    <label class="option"><input type="checkbox" name="q13" value="d"><label>الْقَلْبُ = Jantung/Hati</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 14 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">14</div>
+                    <div class="question-text">Pilihlah kegiatan yang biasa dilakukan saat <strong>Hari Raya Idul Fitri</strong>! (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q14" value="a"><label>Shalat Id di masjid/lapangan</label></label>
+                    <label class="option"><input type="checkbox" name="q14" value="b"><label>Menyembelih hewan qurban</label></label>
+                    <label class="option"><input type="checkbox" name="q14" value="c"><label>Silaturahmi dan halal bihalal</label></label>
+                    <label class="option"><input type="checkbox" name="q14" value="d"><label>Puasa Ramadhan</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 15 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">15</div>
+                    <div class="question-text">Manakah yang termasuk <strong>Fi'il Mudhari'</strong> (kata kerja sekarang/akan)? (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q15" value="a"><label>ذَهَبَ</label></label>
+                    <label class="option"><input type="checkbox" name="q15" value="b"><label>يَقْرَأُ</label></label>
+                    <label class="option"><input type="checkbox" name="q15" value="c"><label>تَلْعَبُ</label></label>
+                    <label class="option"><input type="checkbox" name="q15" value="d"><label>كَتَبَ</label></label>
+                </div>
+            </div>
+
+             <!-- Soal 16-20 (Pola sama) -->
+             <div class="question">
+                <div class="question-header">
+                    <div class="question-number">16</div>
+                    <div class="question-text">Pilihlah preposisi tempat yang menunjukkan posisi <strong>di atas</strong>! (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q16" value="a"><label>عَلَى</label></label>
+                    <label class="option"><input type="checkbox" name="q16" value="b"><label>فِي</label></label>
+                    <label class="option"><input type="checkbox" name="q16" value="c"><label>فَوْقَ</label></label>
+                    <label class="option"><input type="checkbox" name="q16" value="d"><label>تَحْتَ</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">17</div>
+                    <div class="question-text">Manakah gejala penyakit berikut? (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q17" value="a"><label>سُعَالٌ (Batuk)</label></label>
+                    <label class="option"><input type="checkbox" name="q17" value="b"><label>قِرَاءَةٌ (Membaca)</label></label>
+                    <label class="option"><input type="checkbox" name="q17" value="c"><label>حُمَّى (Demam)</label></label>
+                    <label class="option"><input type="checkbox" name="q17" value="d"><label>نَوْمٌ (Tidur)</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">18</div>
+                    <div class="question-text">Pilihlah anggota tubuh bagian <strong>kepala</strong>! (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q18" value="a"><label>الْأُذُنُ</label></label>
+                    <label class="option"><input type="checkbox" name="q18" value="b"><label>الرِّجْلُ</label></label>
+                    <label class="option"><input type="checkbox" name="q18" value="c"><label>الْفَمُ</label></label>
+                    <label class="option"><input type="checkbox" name="q18" value="d"><label>الْبَطْنُ</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">19</div>
+                    <div class="question-text">Manakah yang merupakan nama <strong>Hari Besar Islam</strong>? (Pilih 2 jawaban)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q19" value="a"><label>عِيْدُ الْفِطْرِ</label></label>
+                    <label class="option"><input type="checkbox" name="q19" value="b"><label>يَوْمُ الِاثْنَيْنِ</label></label>
+                    <label class="option"><input type="checkbox" name="q19" value="c"><label>الْمَوْلِدُ النَّبَوِيُّ</label></label>
+                    <label class="option"><input type="checkbox" name="q19" value="d"><label>شَهْرُ رَمَضَانَ</label></label>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">20</div>
+                    <div class="question-text">Pilihlah terjemahan yang BENAR untuk "Ini mejaku"! (Pilih 2 jawaban yang bermakna sama)</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="q20" value="a"><label>هَذَا مَكْتَبِي</label></label>
+                    <label class="option"><input type="checkbox" name="q20" value="b"><label>هَذِهِ مَكْتَبَتِي</label></label>
+                    <label class="option"><input type="checkbox" name="q20" value="c"><label>مَكْتَبِي هَذَا</label></label>
+                    <label class="option"><input type="checkbox" name="q20" value="d"><label>ذَلِكَ مَكْتَبِي</label></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bagian III: Benar/Salah -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">III</div>
+                <div>
+                    <h2>Benar atau Salah</h2>
+                    <p>Tentukan kebenaran pernyataan berikut. (Bobot: 2 poin per soal)</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">21</div>
+                    <div class="question-text">Kata <span style="color:var(--gold-primary)">الْمَسْجِدُ</span> adalah isim muannats (perempuan), sehingga kata tunjuknya adalah هَذِهِ.</div>
+                </div>
+                <div class="tf-options">
+                    <div class="tf-btn" onclick="selectTF(this, 'q21', 'true')">BENAR</div>
+                    <div class="tf-btn" onclick="selectTF(this, 'q21', 'false')">SALAH</div>
+                </div>
+                <input type="hidden" name="q21" id="input-q21">
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">22</div>
+                    <div class="question-text">Preposisi <span style="color:var(--gold-primary)">بِجَانِبِ</span> berarti "di antara".</div>
+                </div>
+                <div class="tf-options">
+                    <div class="tf-btn" onclick="selectTF(this, 'q22', 'true')">BENAR</div>
+                    <div class="tf-btn" onclick="selectTF(this, 'q22', 'false')">SALAH</div>
+                </div>
+                <input type="hidden" name="q22" id="input-q22">
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">23</div>
+                    <div class="question-text">Fi'il Mudhari' untuk "Saya makan" adalah <span style="color:var(--gold-primary)">آكُلُ</span>.</div>
+                </div>
+                <div class="tf-options">
+                    <div class="tf-btn" onclick="selectTF(this, 'q23', 'true')">BENAR</div>
+                    <div class="tf-btn" onclick="selectTF(this, 'q23', 'false')">SALAH</div>
+                </div>
+                <input type="hidden" name="q23" id="input-q23">
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">24</div>
+                    <div class="question-text">Salah satu adab masuk rumah dalam Islam adalah mengucapkan salam.</div>
+                </div>
+                <div class="tf-options">
+                    <div class="tf-btn" onclick="selectTF(this, 'q24', 'true')">BENAR</div>
+                    <div class="tf-btn" onclick="selectTF(this, 'q24', 'false')">SALAH</div>
+                </div>
+                <input type="hidden" name="q24" id="input-q24">
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">25</div>
+                    <div class="question-text">Hari Raya Idul Adha identik dengan perayaan kemenangan setelah puasa Ramadhan.</div>
+                </div>
+                <div class="tf-options">
+                    <div class="tf-btn" onclick="selectTF(this, 'q25', 'true')">BENAR</div>
+                    <div class="tf-btn" onclick="selectTF(this, 'q25', 'false')">SALAH</div>
+                </div>
+                <input type="hidden" name="q25" id="input-q25">
+            </div>
+        </div>
+
+        <!-- Bagian IV: Menjodohkan -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">IV</div>
+                <div>
+                    <h2>Menjodohkan</h2>
+                    <p>Pasangkan istilah di kolom kiri dengan arti/keterangan di kolom kanan. (Bobot: 2 poin per soal)</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">26-30</div>
+                    <div class="question-text">Tarik garis atau pilih pasangan yang tepat!</div>
+                </div>
+                <div class="matching-grid">
+                    <!-- Kiri -->
+                    <div style="display:flex; flex-direction:column; gap:1rem;">
+                        <div style="padding:1rem; background:var(--bg-card); border:1px solid var(--gold-primary); border-radius:6px;">1. الْحَدِيْقَةُ</div>
+                        <div style="padding:1rem; background:var(--bg-card); border:1px solid var(--gold-primary); border-radius:6px;">2. يُؤْلِمُ</div>
+                        <div style="padding:1rem; background:var(--bg-card); border:1px solid var(--gold-primary); border-radius:6px;">3. تَقَبَّلَ اللهُ</div>
+                        <div style="padding:1rem; background:var(--bg-card); border:1px solid var(--gold-primary); border-radius:6px;">4. ذَهَبْتُ</div>
+                        <div style="padding:1rem; background:var(--bg-card); border:1px solid var(--gold-primary); border-radius:6px;">5. الْهَوَايَةُ</div>
+                    </div>
+                    <!-- Kanan (Dropdown simulation for simplicity in HTML form) -->
+                    <div style="display:flex; flex-direction:column; gap:1rem;">
+                        <select name="match1" style="padding:1rem; background:var(--bg-secondary); color:white; border:1px solid #555; border-radius:6px;">
+                            <option value="">-- Pilih Pasangan --</option>
+                            <option value="B">Sakit/Nyeri</option>
+                            <option value="C">Semoga Allah menerima</option>
+                            <option value="A">Taman</option>
+                            <option value="E">Hobi</option>
+                            <option value="D">Saya telah pergi</option>
+                        </select>
+                        <select name="match2" style="padding:1rem; background:var(--bg-secondary); color:white; border:1px solid #555; border-radius:6px;">
+                            <option value="">-- Pilih Pasangan --</option>
+                            <option value="B">Sakit/Nyeri</option>
+                            <option value="C">Semoga Allah menerima</option>
+                            <option value="A">Taman</option>
+                            <option value="E">Hobi</option>
+                            <option value="D">Saya telah pergi</option>
+                        </select>
+                        <select name="match3" style="padding:1rem; background:var(--bg-secondary); color:white; border:1px solid #555; border-radius:6px;">
+                            <option value="">-- Pilih Pasangan --</option>
+                            <option value="B">Sakit/Nyeri</option>
+                            <option value="C">Semoga Allah menerima</option>
+                            <option value="A">Taman</option>
+                            <option value="E">Hobi</option>
+                            <option value="D">Saya telah pergi</option>
+                        </select>
+                        <select name="match4" style="padding:1rem; background:var(--bg-secondary); color:white; border:1px solid #555; border-radius:6px;">
+                            <option value="">-- Pilih Pasangan --</option>
+                            <option value="B">Sakit/Nyeri</option>
+                            <option value="C">Semoga Allah menerima</option>
+                            <option value="A">Taman</option>
+                            <option value="E">Hobi</option>
+                            <option value="D">Saya telah pergi</option>
+                        </select>
+                        <select name="match5" style="padding:1rem; background:var(--bg-secondary); color:white; border:1px solid #555; border-radius:6px;">
+                            <option value="">-- Pilih Pasangan --</option>
+                            <option value="B">Sakit/Nyeri</option>
+                            <option value="C">Semoga Allah menerima</option>
+                            <option value="A">Taman</option>
+                            <option value="E">Hobi</option>
+                            <option value="D">Saya telah pergi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bagian V: Essay -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">V</div>
+                <div>
+                    <h2>Essay / Uraian</h2>
+                    <p>Jawablah pertanyaan berikut dengan jelas dan tepat. (Bobot: 4 poin per soal)</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">31</div>
+                    <div class="question-text">Buatlah 3 kalimat sederhana menggunakan <em>Isim Isyarah</em> (هَذَا/هَذِهِ) untuk benda-benda yang ada di kelasmu!</div>
+                </div>
+                <textarea class="essay-textarea" name="q31" dir="rtl"></textarea>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">32</div>
+                    <div class="question-text">Jelaskan perbedaan penggunaan <em>Fi'il Madhi</em> dan <em>Fi'il Mudhari'</em> beserta masing-masing satu contoh kalimat!</div>
+                </div>
+                <textarea class="essay-textarea" name="q32"></textarea>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">33</div>
+                    <div class="question-text">Sebutkan 3 adab yang harus dilakukan seorang muslim ketika sedang sakit atau berobat!</div>
+                </div>
+                <textarea class="essay-textarea" name="q33"></textarea>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">34</div>
+                    <div class="question-text">Terjemahkan kalimat berikut ke dalam bahasa Indonesia:<br>
+                        <span class="arabic-text">ذَهَبَتْ فَاطِمَةُ إِلَى الْمَسْجِدِ يَوْمَ الْعِيْدِ مَعَ أُسْرَتِهَا</span>
+                    </div>
+                </div>
+                <textarea class="essay-textarea" name="q34"></textarea>
+            </div>
+
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">35</div>
+                    <div class="question-text">Mengapa silaturahmi sangat ditekankan pada momen Hari Raya Idul Fitri? Jelaskan nilai sosialnya!</div>
+                </div>
+                <textarea class="essay-textarea" name="q35"></textarea>
+            </div>
+        </div>
+
+        <!-- Submit Section -->
+        <div class="submit-section">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📤 Selesai Mengerjakan?</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Pastikan semua jawaban telah diisi. Klik tombol di bawah untuk melihat hasil sementara (Nilai Essay dihitung estimasi).</p>
+            <button type="button" class="btn-submit" onclick="submitExam()">
+                ✨ Kirim Jawaban UTS
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <h2>Hasil Ujian Tengah Semester</h2>
+            <div class="score-display" id="scoreDisplay">0</div>
+            <p style="color:var(--text-secondary)">dari 100 poin (Estimasi)</p>
+            <p id="resultMessage" style="margin-top:1rem; color:var(--gold-light)"></p>
+            <button class="close-modal" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>© 2026 ARMI WAHID., S.PdI. MTsS Diniyah Limo Jurai.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Kunci Jawaban Objektif
+        const answers = {
+            q1: 'b', q2: 'c', q3: 'b', q4: 'b', q5: 'a',
+            q6: 'd', q7: 'a', q8: 'c', q9: 'b', q10: 'b',
+            // PG Kompleks (Harus memilih semua yang benar)
+            q11: ['a','c'], q12: ['a','c'], q13: ['b','d'], q14: ['a','c'], q15: ['b','c'],
+            q16: ['a','c'], q17: ['a','c'], q18: ['a','c'], q19: ['a','c'], q20: ['a','c'],
+            // Benar/Salah
+            q21: 'false', q22: 'false', q23: 'true', q24: 'true', q25: 'false',
+            // Menjodohkan
+            match1: 'A', match2: 'B', match3: 'C', match4: 'D', match5: 'E'
+        };
+
+        function selectTF(btn, name, val) {
+            // Reset siblings
+            let parent = btn.parentElement;
+            let btns = parent.getElementsByClassName('tf-btn');
+            for(let b of btns) {
+                b.classList.remove('selected-true', 'selected-false');
+            }
+            // Set active
+            if(val === 'true') btn.classList.add('selected-true');
+            else btn.classList.add('selected-false');
+            
+            document.getElementById('input-'+name).value = val;
+        }
+
+        function submitExam() {
+            let score = 0;
+            let maxScore = 100;
+            
+            // Cek PG (10 soal x 2 = 20 poin)
+            for(let i=1; i<=10; i++) {
+                let selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if(selected && selected.value === answers[`q${i}`]) score += 2;
+            }
+
+            // Cek PG Kompleks (10 soal x 3 = 30 poin)
+            for(let i=11; i<=20; i++) {
+                let checked = document.querySelectorAll(`input[name="q${i}"]:checked`);
+                let vals = Array.from(checked).map(c => c.value).sort();
+                let correct = answers[`q${i}`].sort();
+                if(JSON.stringify(vals) === JSON.stringify(correct)) score += 3;
+            }
+
+            // Cek B/S (5 soal x 2 = 10 poin)
+            for(let i=21; i<=25; i++) {
+                let val = document.getElementById(`input-q${i}`).value;
+                if(val === answers[`q${i}`]) score += 2;
+            }
+
+            // Cek Menjodohkan (5 soal x 2 = 10 poin)
+            for(let i=1; i<=5; i++) {
+                let val = document.getElementsByName(`match${i}`)[0].value;
+                if(val === answers[`match${i}`]) score += 2;
+            }
+
+            // Essay (5 soal x 4 = 20 poin) -> Estimasi diberikan jika tidak kosong
+            let essayCount = 0;
+            for(let i=31; i<=35; i++) {
+                if(document.getElementsByName(`q${i}`)[0].value.length > 5) essayCount++;
+            }
+            score += (essayCount * 4);
+
+            // Tampilkan
+            document.getElementById('scoreDisplay').innerText = score;
+            let msg = "";
+            if(score >= 85) msg = "Mumtaz! Luar Biasa.";
+            else if(score >= 75) msg = "Jayyid Jiddan. Bagus!";
+            else msg = "Perlu belajar lagi. Semangat!";
+            
+            document.getElementById('resultMessage').innerText = `Identitas: ${document.getElementById('nama').value} (${document.getElementById('nis').value})\n${msg}`;
+            document.getElementById('resultModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('resultModal').classList.remove('active');
+        }
+        
+        // Set default date
+        document.getElementById('tanggal').valueAsDate = new Date();
+    </script>
+</body>
+</html>

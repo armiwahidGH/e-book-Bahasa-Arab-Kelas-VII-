@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 4 - Al-Mihan (Profesi) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-header p { color: var(--text-secondary); font-size: 1.1rem; font-style: italic; }
+
+        .section-block { margin-bottom: 3rem; }
+        .section-block h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .section-block h3 { font-size: 1.3rem; color: var(--gold-light); margin: 1.5rem 0 1rem 0; }
+        .section-block p, .section-block li { color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; }
+        .section-block ul, .section-block ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .section-block li { margin-bottom: 0.5rem; }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin: 1rem 0;
+            line-height: 2;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .vocab-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .vocab-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .vocab-arabic {
+            direction: rtl;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-transliteration {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .vocab-meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Expression Box */
+        .expression-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .expression-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            align-items: center;
+        }
+
+        .expression-item:last-child { border-bottom: none; }
+
+        .expression-arabic {
+            direction: rtl;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .expression-translit {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .expression-meaning {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .comparison-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(212, 175, 55, 0.05); color: var(--text-primary); }
+
+        /* Highlight Box & Video Button */
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1.2rem; }
+
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .btn-video:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Navigation Buttons */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .chapter-header h1 { font-size: 1.8rem; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .expression-item { grid-template-columns: 1fr; gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+                <a href="index.html#penulis">✍️ Penulis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="chapter-header">
+            <h1>Pertemuan 4<br>Al-Mihan (الْمِهَنُ وَالْأَعْمَالُ)</h1>
+            <p>Mengeksplorasi berbagai profesi, etos kerja Islami, dan mengekspresikan cita-cita dalam bahasa Arab menggunakan Isim Fa'il.</p>
+        </div>
+
+        <div class="section-block">
+            <h2>A. Kosakata Profesi dan Pekerjaan (الْمِهَنُ وَالْأَعْمَالُ)</h2>
+            <p>Setiap manusia memiliki peran dan profesi (<span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">مِهْنَةٌ</span>) yang berbeda-beda dalam masyarakat. Profesi bukan sekadar sarana mencari nafkah, tetapi juga ladang amal dan pengabdian. Berikut adalah kosakata inti profesi yang perlu dikuasai:</p>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">طَبِيْبٌ</div>
+                    <div class="vocab-transliteration">Thabiibun</div>
+                    <div class="vocab-meaning">Dokter</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">مُدَرِّسٌ</div>
+                    <div class="vocab-transliteration">Mudarrisun</div>
+                    <div class="vocab-meaning">Guru</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">مُهَنْدِسٌ</div>
+                    <div class="vocab-transliteration">Muhandisun</div>
+                    <div class="vocab-meaning">Insinyur</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">فَلاَّحٌ</div>
+                    <div class="vocab-transliteration">Fallaaahun</div>
+                    <div class="vocab-meaning">Petani</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">تَاجِرٌ</div>
+                    <div class="vocab-transliteration">Taajirun</div>
+                    <div class="vocab-meaning">Pedagang</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">طَيَّارٌ</div>
+                    <div class="vocab-transliteration">Thayyaarun</div>
+                    <div class="vocab-meaning">Pilot</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">شُرْطِيٌّ</div>
+                    <div class="vocab-transliteration">Syurthiyyun</div>
+                    <div class="vocab-meaning">Polisi</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">عَسْكَرِيٌّ</div>
+                    <div class="vocab-transliteration">'Askariyyun</div>
+                    <div class="vocab-meaning">Tentara</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">خَيَّاطٌ</div>
+                    <div class="vocab-transliteration">Khayyaathun</div>
+                    <div class="vocab-meaning">Penjahit</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">حَادِقٌ</div>
+                    <div class="vocab-transliteration">Haadiqun</div>
+                    <div class="vocab-meaning">Tukang Kebun</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">طَبَّاخٌ</div>
+                    <div class="vocab-transliteration">Thabbaakhun</div>
+                    <div class="vocab-meaning">Juru Masak</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">صَيْدَلِيٌّ</div>
+                    <div class="vocab-transliteration">Shaidaliyyun</div>
+                    <div class="vocab-meaning">Apoteker</div>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_MIHAN" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Kosakata Profesi dalam Bahasa Arab</a>
+        </div>
+
+        <div class="section-block">
+            <h2>B. Tata Bahasa: Isim Fa'il (اِسْمُ الْفَاعِلِ)</h2>
+            <p><em>Isim Fa'il</em> adalah kata benda yang menunjukkan <strong>pelaku</strong> dari suatu pekerjaan. Dalam bahasa Arab, kebanyakan nama profesi berasal dari Isim Fa'il. Pola dasarnya dibentuk dari kata kerja (fi'il) dengan menambahkan pola tertentu.</p>
+
+            <h3>Pola Pembentukan Isim Fa'il:</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Fi'il Madhi</th>
+                        <th>Arti</th>
+                        <th>Isim Fa'il</th>
+                        <th>Arti</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">دَرَّسَ</td>
+                        <td>Mengajar</td>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">مُدَرِّسٌ</td>
+                        <td>Pengajar / Guru</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">هَنْدَسَ</td>
+                        <td>Merekayasa</td>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">مُهَنْدِسٌ</td>
+                        <td>Insinyur</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">خَاطَ</td>
+                        <td>Menjahit</td>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">خَيَّاطٌ</td>
+                        <td>Penjahit</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">طَبَخَ</td>
+                        <td>Memasak</td>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">طَبَّاخٌ</td>
+                        <td>Juru masak</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">فَلَحَ</td>
+                        <td>Mengolah tanah</td>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">فَلاَّحٌ</td>
+                        <td>Petani</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">تَجَرَ</td>
+                        <td>Berdagang</td>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">تَاجِرٌ</td>
+                        <td>Pedagang</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Catatan Penting:</h4>
+                <p>Isim Fa'il untuk <strong>laki-laki (muzakkar)</strong> biasanya berakhiran tanwin dhommah (ـٌ), sedangkan untuk <strong>perempuan (muannats)</strong> ditambahkan ta' marbuthah (ـَة). Contoh: مُدَرِّسٌ (guru laki-laki) → مُدَرِّسَةٌ (guru perempuan).</p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_ISIM_FAIL" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Penjelasan Isim Fa'il</a>
+        </div>
+
+        <div class="section-block">
+            <h2>C. Ungkapan Cita-Cita (التَّعْبِيْرُ عَنِ الطُّمُوْحِ)</h2>
+            <p>Dalam bahasa Arab, ada beberapa ungkapan elegan untuk menyatakan cita-cita atau keinginan menjadi suatu profesi. Berikut ungkapan-ungkapan yang sering digunakan:</p>
+
+            <div class="expression-box">
+                <div class="expression-item">
+                    <div class="expression-arabic">أُرِيْدُ أَنْ أَكُوْنَ...</div>
+                    <div class="expression-translit">Uriidu an akuuna...</div>
+                    <div class="expression-meaning">Saya ingin menjadi...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">أَحْلُمُ أَنْ أَصْبِحَ...</div>
+                    <div class="expression-translit">Ahlamu an ashbiha...</div>
+                    <div class="expression-meaning">Saya bermimpi menjadi...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">طَمُوْحِيْ أَنْ أَكُوْنَ...</div>
+                    <div class="expression-translit">Thamuuhii an akuuna...</div>
+                    <div class="expression-meaning">Cita-cita saya adalah menjadi...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">سَأَصْبِحُ...</div>
+                    <div class="expression-translit">Sa-ashbihu...</div>
+                    <div class="expression-meaning">Saya akan menjadi...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">أَمَلِيْ أَنْ أَكُوْنَ...</div>
+                    <div class="expression-translit">Amalii an akuuna...</div>
+                    <div class="expression-meaning">Harapan saya adalah menjadi...</div>
+                </div>
+            </div>
+
+            <h3>Contoh Penerapan dalam Kalimat:</h3>
+            <div class="arabic-text">
+                أُرِيْدُ أَنْ أَكُوْنَ طَبِيْبًا. أَحْلُمُ أَنْ أَصْبِحَ مُدَرِّسًا لِلُّغَةِ الْعَرَبِيَّةِ. طَمُوْحِيْ أَنْ أَكُوْنَ مُهَنْدِسًا. سَأَصْبِحُ فَلاَّحًا نَاجِحًا. أَمَلِيْ أَنْ أَكُوْنَ تَاجِرًا صَادِقًا.
+            </div>
+            <p style="color: var(--text-secondary); font-style: italic;">
+                <strong>Terjemahan:</strong> "Saya ingin menjadi dokter. Saya bermimpi menjadi guru bahasa Arab. Cita-cita saya adalah menjadi insinyur. Saya akan menjadi petani yang sukses. Harapan saya adalah menjadi pedagang yang jujur."
+            </p>
+
+            <div class="highlight-box">
+                <h4>📌 Catatan Grammar:</h4>
+                <p>Setelah kata <strong>أَنْ</strong> (an), kata benda yang menjadi predikat cita-cita berbaris <em>fathah</em> (manshub), bukan dhommah. Contoh: طَبِيْبًا (bukan طَبِيْبٌ). Ini disebut <em>Isim Anna wa Khawatiirihaa</em>.</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>D. Dialog Komunikatif: Wawancara Profesi</h2>
+            <p>Berikut adalah contoh dialog nyata antara seorang pewawancara dan seorang dokter. Dialog ini dapat dipraktikkan secara berpasangan di kelas:</p>
+
+            <div class="highlight-box">
+                <h4>🎭 Dialog: Liqaa' Ma'a Thabiib (Wawancara dengan Dokter)</h4>
+                <div style="direction: rtl; text-align: right; font-family: 'Traditional Arabic', serif; font-size: 1.2rem; color: var(--gold-primary); line-height: 2.2;">
+                    الْمُرَاسِلُ: السَّلَامُ عَلَيْكُمْ يَا دُكْتُورُ. مَا اسْمُكَ؟<br>
+                    الطَّبِيْبُ: وَعَلَيْكُمُ السَّلَامُ. اِسْمِيْ أَحْمَدُ.<br>
+                    الْمُرَاسِلُ: مَا مِهْنَتُكَ؟<br>
+                    الطَّبِيْبُ: أَنَا طَبِيْبٌ فِي الْمُسْتَشْفَى.<br>
+                    الْمُرَاسِلُ: هَلْ تُحِبُّ مِهْنَتَكَ؟<br>
+                    الطَّبِيْبُ: نَعَمْ، أُحِبُّ مِهْنَتِيْ جِدًّا. أُسَاعِدُ الْمَرْضَى.<br>
+                    الْمُرَاسِلُ: مَا طَمُوْحُكَ فِي الْمُسْتَقْبَلِ؟<br>
+                    الطَّبِيْبُ: أُرِيْدُ أَنْ أَفْتَتِحَ مُسْتَشْفًى خَاصًّا لِمُسَاعَدَةِ الْفُقَرَاءِ.
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic; direction: ltr; text-align: left;">
+                    <strong>Terjemahan:</strong> Pewawancara: "Assalamu'alaikum dokter. Siapa nama Anda?" | Dokter: "Wa'alaikumussalam. Nama saya Ahmad." | Pewawancara: "Apa profesi Anda?" | Dokter: "Saya dokter di rumah sakit." | Pewawancara: "Apakah Anda menyukai profesi Anda?" | Dokter: "Ya, saya sangat menyukai profesi saya. Saya membantu orang sakit." | Pewawancara: "Apa cita-cita Anda di masa depan?" | Dokter: "Saya ingin membuka rumah sakit khusus untuk membantu orang-orang fakir."
+                </p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_DIALOG_MIHNAH" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Contoh Dialog Wawancara Profesi</a>
+        </div>
+
+        <div class="section-block">
+            <h2>E. Studi Kasus & Perbandingan Metode Belajar</h2>
+            <p>Untuk memastikan siswa dapat mengekspresikan cita-cita mereka dengan percaya diri, pendekatan simulatif sangat efektif. Berikut perbandingan metode:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Metode Konvensional</th>
+                        <th>Metode Simulatif (Buku Ini)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengenalan Kosakata</strong></td>
+                        <td>Menghafal daftar profesi dari buku teks.</td>
+                        <td>Siswa bermain "Tebak Profesi" — satu siswa memperagakan gerakan profesi, yang lain menebak dalam bahasa Arab.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latihan Isim Fa'il</strong></td>
+                        <td>Mengerjakan soal mengubah fi'il menjadi isim fa'il di kertas.</td>
+                        <td>Role-play: Siswa mengenakan kostum profesi dan memperkenalkan diri: "أَنَا طَبِيْبٌ" (Saya seorang dokter).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Output Siswa</strong></td>
+                        <td>Mampu menerjemahkan kalimat tentang profesi.</td>
+                        <td>Mampu membuat video pendek "Cita-Citaku" berdurasi 1 menit dalam bahasa Arab.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>🎯 Studi Kasus: "Pameran Profesi Impian"</h4>
+                <p>Setiap siswa diminta memilih satu profesi impian, lalu membuat poster mini yang berisi:</p>
+                <ul>
+                    <li>Nama profesi dalam bahasa Arab</li>
+                    <li>Alasan memilih profesi tersebut (2-3 kalimat)</li>
+                    <li>Kontribusi profesi tersebut untuk masyarakat</li>
+                </ul>
+                <p>Contoh presentasi:</p>
+                <div class="arabic-text" style="margin: 1rem 0; font-size: 1.2rem;">
+                    طَمُوْحِيْ أَنْ أَكُوْنَ مُدَرِّسًا. أُحِبُّ أَنْ أُعَلِّمَ النَّاشِئَةَ. أُرِيْدُ أَنْ أُسَاهِمَ فِي بِنَاءِ الْمُجْتَمَعِ.
+                </div>
+                <p>Proyek ini melatih <strong>4 keterampilan</strong>: <em>menulis</em> (poster), <em>membaca</em> (poster teman), <em>menyimak</em> (presentasi teman), dan <em>berbicara</em> (presentasi di depan kelas).</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>F. Etos Kerja Islami</h2>
+            <p>Dalam Islam, bekerja adalah ibadah. Rasulullah ﷺ bersabda: <em>"Tidak ada seorangpun yang memakan makanan yang lebih baik daripada hasil usahanya sendiri"</em> (HR. Bukhari). Oleh karena itu, setiap profesi yang halal dan bermanfaat memiliki nilai mulia di sisi Allah.</p>
+
+            <h3>Prinsip Etos Kerja Islami:</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Prinsip</th>
+                        <th>Penjelasan</th>
+                        <th>Dalil/Referensi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>إِتْقَانٌ</strong> (Profesionalisme)</td>
+                        <td>Melakukan pekerjaan dengan sebaik-baiknya, tidak asal-asalan.</td>
+                        <td>"Sesungguhnya Allah mencintai orang yang jika melakukan suatu pekerjaan, dilakukan dengan itqan (tepat, terarah, jelas dan tuntas)." (HR. Thabrani)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>صِدْقٌ</strong> (Kejujuran)</td>
+                        <td>Jujur dalam berdagang, bekerja, dan berinteraksi.</td>
+                        <td>Pedagang yang jujur akan dikumpulkan bersama para nabi dan shiddiqin di hari kiamat.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>أَمَانَةٌ</strong> (Amanah)</td>
+                        <td>Menjaga kepercayaan yang diberikan dalam pekerjaan.</td>
+                        <td>QS. Al-Anfal [8]: 27 — "Janganlah kamu mengkhianati amanah Allah."</td>
+                    </tr>
+                    <tr>
+                        <td><strong>إِحْسَانٌ</strong> (Kebaikan)</td>
+                        <td>Berbuat baik kepada rekan kerja, klien, dan masyarakat.</td>
+                        <td>"Sesungguhnya Allah mewajibkan berbuat ihsan kepada segala sesuatu." (HR. Muslim)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>جِدٌّ</strong> (Kesungguhan)</td>
+                        <td>Bekerja dengan semangat dan tidak bermalas-malasan.</td>
+                        <td>Doa Nabi: "Ya Allah, aku berlindung dari kemalasan..." (HR. Bukhari)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Teladan Nabi Muhammad ﷺ:</h4>
+                <p>Sebelum diangkat menjadi Rasul, Nabi Muhammad ﷺ bekerja sebagai <strong>penggembala kambing</strong> dan <strong>pedagang</strong>. Beliau dikenal dengan gelar <em>Al-Amin</em> (Yang Terpercaya) karena kejujuran dan profesionalismenya dalam berdagang. Ini menunjukkan bahwa tidak ada profesi yang rendah di sisi Allah, selama dikerjakan dengan ikhlas dan amanah.</p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_ETOS_KERJA" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Etos Kerja Islami</a>
+        </div>
+
+        <div class="section-block">
+            <h2>G. Tantangan dan Tips Belajar untuk Siswa</h2>
+            <ul>
+                <li><strong>Tantangan:</strong> Kesulitan membedakan Isim Fa'il dari kata benda biasa.</li>
+                <li><strong>Solusi:</strong> Ingat rumus: <em>Isim Fa'il = pelaku dari suatu pekerjaan</em>. Jika kata tersebut menunjukkan "orang yang melakukan...", maka itu Isim Fa'il.</li>
+                <li><strong>Tantangan:</strong> Lupa baris fathah setelah kata أَنْ.</li>
+                <li><strong>Solusi:</strong> Buat mantra: <em>"Setelah AN, benda jadi fathah!"</em> — ulangi setiap kali membuat kalimat cita-cita.</li>
+                <li><strong>Tantangan:</strong> Bingung memilih profesi yang tepat untuk diekspresikan.</li>
+                <li><strong>Solusi:</strong> Mulailah dengan profesi yang paling dekat dengan kehidupan sehari-hari (guru, dokter, petani), lalu kembangkan ke profesi lain.</li>
+                <li><strong>Tantangan:</strong> Takut berbicara tentang cita-cita di depan kelas.</li>
+                <li><strong>Solusi:</strong> Siapkan naskah singkat terlebih dahulu, berlatih di depan cermin, lalu tampil dengan percaya diri. Ingat: setiap orang punya mimpi!</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2>◆ Kata Kunci Bab Ini</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْمِهْنَةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">اِسْمُ الْفَاعِلِ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">طَبِيْبٌ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">مُدَرِّسٌ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">أُرِي

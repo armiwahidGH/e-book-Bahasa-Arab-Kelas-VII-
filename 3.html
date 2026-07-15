@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3 - Al-Hiwayah (Hobi) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-header p { color: var(--text-secondary); font-size: 1.1rem; font-style: italic; }
+
+        .section-block { margin-bottom: 3rem; }
+        .section-block h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .section-block h3 { font-size: 1.3rem; color: var(--gold-light); margin: 1.5rem 0 1rem 0; }
+        .section-block p, .section-block li { color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; }
+        .section-block ul, .section-block ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .section-block li { margin-bottom: 0.5rem; }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin: 1rem 0;
+            line-height: 2;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .vocab-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .vocab-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .vocab-arabic {
+            direction: rtl;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-transliteration {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .vocab-meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Expression Box */
+        .expression-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .expression-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            align-items: center;
+        }
+
+        .expression-item:last-child { border-bottom: none; }
+
+        .expression-arabic {
+            direction: rtl;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .expression-translit {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .expression-meaning {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .comparison-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(212, 175, 55, 0.05); color: var(--text-primary); }
+
+        /* Highlight Box & Video Button */
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1.2rem; }
+
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .btn-video:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Navigation Buttons */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .chapter-header h1 { font-size: 1.8rem; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .expression-item { grid-template-columns: 1fr; gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+                <a href="index.html#penulis">✍️ Penulis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="chapter-header">
+            <h1>Pertemuan 3<br>Al-Hiwayah (الْهِوَايَةُ)</h1>
+            <p>Mengekspresikan hobi dan kegemaran dalam bahasa Arab menggunakan Fi'il Mudhari' dan ungkapan kesukaan.</p>
+        </div>
+
+        <div class="section-block">
+            <h2>A. Kosakata Hobi dan Kegemaran (الْهِوَايَاتُ)</h2>
+            <p>Setiap orang memiliki hobi (<span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">هِوَايَةٌ</span>) yang berbeda-beda. Hobi adalah kegiatan yang kita lakukan dengan senang hati di waktu luang. Dalam bahasa Arab, nama-nama hobi umumnya berbentuk <em>mashdar</em> (kata benda verbal). Berikut adalah kosakata inti hobi yang perlu dikuasai:</p>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْقِرَاءَةُ</div>
+                    <div class="vocab-transliteration">Al-Qiraa'ah</div>
+                    <div class="vocab-meaning">Membaca</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْكِتَابَةُ</div>
+                    <div class="vocab-transliteration">Al-Kitabah</div>
+                    <div class="vocab-meaning">Menulis</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الرِّسْمُ</div>
+                    <div class="vocab-transliteration">Ar-Rasmu</div>
+                    <div class="vocab-meaning">Menggambar</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">السِّبَاحَةُ</div>
+                    <div class="vocab-transliteration">As-Sibaahah</div>
+                    <div class="vocab-meaning">Berenang</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">كُرَةُ الْقَدَمِ</div>
+                    <div class="vocab-transliteration">Kuratul Qadam</div>
+                    <div class="vocab-meaning">Sepak Bola</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الطَّبْخُ</div>
+                    <div class="vocab-transliteration">Ath-Thabkhu</div>
+                    <div class="vocab-meaning">Memasak</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الرِّيَاضَةُ</div>
+                    <div class="vocab-transliteration">Ar-Riyadlah</div>
+                    <div class="vocab-meaning">Olahraga</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">حِفْظُ الْقُرْآنِ</div>
+                    <div class="vocab-transliteration">Hifzhul Qur'an</div>
+                    <div class="vocab-meaning">Menghafal Al-Qur'an</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْخَيْطُ</div>
+                    <div class="vocab-transliteration">Al-Khaithu</div>
+                    <div class="vocab-meaning">Menjahit</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">السِّفْرُ</div>
+                    <div class="vocab-transliteration">As-Safar</div>
+                    <div class="vocab-meaning">Bepergian/Wisata</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْغِنَاءُ</div>
+                    <div class="vocab-transliteration">Al-Ghinaa'</div>
+                    <div class="vocab-meaning">Bernyanyi</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْمُشَاهَدَةُ</div>
+                    <div class="vocab-transliteration">Al-Musyaahadah</div>
+                    <div class="vocab-meaning">Menonton</div>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_HOBI" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Kosakata Hobi dalam Bahasa Arab</a>
+        </div>
+
+        <div class="section-block">
+            <h2>B. Tata Bahasa: Fi'il Mudhari' (الْفِعْلُ الْمُضَارِعُ)</h2>
+            <p>Untuk mengekspresikan hobi, kita menggunakan <em>Fi'il Mudhari'</em> (kata kerja bentuk sekarang/akan datang). Fi'il Mudhari' adalah kata kerja yang menunjukkan aktivitas yang sedang berlangsung atau menjadi kebiasaan. Ciri khasnya adalah diawali dengan salah satu huruf <strong>"أنيت"</strong> (alif, nun, ya, ta).</p>
+
+            <h3>Tasrif Fi'il Mudhari' untuk Saya dan Kamu:</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Kata Ganti</th>
+                        <th>أَقْرَأُ (Membaca)</th>
+                        <th>أَلْعَبُ (Bermain)</th>
+                        <th>أُحِبُّ (Suka)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>أَنَا</strong> (Saya)</td>
+                        <td>أَقْرَأُ (Saya membaca)</td>
+                        <td>أَلْعَبُ (Saya bermain)</td>
+                        <td>أُحِبُّ (Saya suka)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>أَنْتَ</strong> (Kamu Lk)</td>
+                        <td>تَقْرَأُ (Kamu membaca)</td>
+                        <td>تَلْعَبُ (Kamu bermain)</td>
+                        <td>تُحِبُّ (Kamu suka)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>أَنْتِ</strong> (Kamu Pr)</td>
+                        <td>تَقْرَئِيْنَ</td>
+                        <td>تَلْعَبِيْنَ</td>
+                        <td>تُحِبِّيْنَ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>هُوَ</strong> (Dia Lk)</td>
+                        <td>يَقْرَأُ</td>
+                        <td>يَلْعَبُ</td>
+                        <td>يُحِبُّ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>هِيَ</strong> (Dia Pr)</td>
+                        <td>تَقْرَأُ</td>
+                        <td>تَلْعَبُ</td>
+                        <td>تُحِبُّ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Catatan Penting:</h4>
+                <p>Ketika Fi'il Mudhari' diikuti oleh <em>mashdar</em> (kata benda verbal), maka maknanya menjadi "suka melakukan..." atau "sedang melakukan...". Contoh: <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">أُقِرَأُ الْقُرْآنَ</span> (Saya membaca Al-Qur'an).</p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_FIL_MUDHARI" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Penjelasan Fi'il Mudhari'</a>
+        </div>
+
+        <div class="section-block">
+            <h2>C. Ungkapan Kesukaan (تَعْبِيْرَاتُ الْمَيْلِ)</h2>
+            <p>Dalam bahasa Arab, ada beberapa cara elegan untuk mengekspresikan kesukaan atau hobi. Berikut ungkapan-ungkapan yang sering digunakan:</p>
+
+            <div class="expression-box">
+                <div class="expression-item">
+                    <div class="expression-arabic">أُحِبُّ + مَصْدَرٌ</div>
+                    <div class="expression-translit">Uhibbu + mashdar</div>
+                    <div class="expression-meaning">Saya suka (melakukan)...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">أَمِيلُ إِلَى</div>
+                    <div class="expression-translit">Amiilu ilaa</div>
+                    <div class="expression-meaning">Saya cenderung ke...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">أُفَضِّلُ</div>
+                    <div class="expression-translit">Ufadh-dhilu</div>
+                    <div class="expression-meaning">Saya lebih suka...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">هِوَايَتِيْ ...</div>
+                    <div class="expression-translit">Hiwaayatii...</div>
+                    <div class="expression-meaning">Hobi saya adalah...</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">أَسْتَمْتِعُ بِـ</div>
+                    <div class="expression-translit">Astamti'u bi...</div>
+                    <div class="expression-meaning">Saya menikmati...</div>
+                </div>
+            </div>
+
+            <h3>Contoh Penerapan dalam Kalimat:</h3>
+            <div class="arabic-text">
+                أُحِبُّ الْقِرَاءَةَ فِي وَقْتِ الْفَرَاغِ. هِوَايَتِيْ حِفْظُ الْقُرْآنِ الْكَرِيْمِ. أَسْتَمْتِعُ بِالسِّبَاحَةِ مَعَ أَصْدِقَائِيْ. أُفَضِّلُ كُرَةَ الْقَدَمِ عَلَى كُرَةِ السَّلَّةِ.
+            </div>
+            <p style="color: var(--text-secondary); font-style: italic;">
+                <strong>Terjemahan:</strong> "Saya suka membaca di waktu luang. Hobi saya adalah menghafal Al-Qur'an. Saya menikmati berenang bersama teman-teman. Saya lebih suka sepak bola daripada basket."
+            </p>
+        </div>
+
+        <div class="section-block">
+            <h2>D. Dialog Komunikatif: Wawancara Hobi</h2>
+            <p>Berikut adalah contoh dialog nyata antara dua siswa yang saling menanyakan hobi. Dialog ini dapat dipraktikkan secara berpasangan di kelas:</p>
+
+            <div class="highlight-box">
+                <h4>🎭 Dialog: Hiwaayatii (Hobi Saya)</h4>
+                <div style="direction: rtl; text-align: right; font-family: 'Traditional Arabic', serif; font-size: 1.2rem; color: var(--gold-primary); line-height: 2.2;">
+                    أَحْمَدُ: السَّلَامُ عَلَيْكُمْ يَا فَاطِمَةُ! مَا هِوَايَتُكِ؟<br>
+                    فَاطِمَةُ: وَعَلَيْكُمُ السَّلَامُ يَا أَحْمَدُ! هِوَايَتِي الْقِرَاءَةُ وَالْكِتَابَةُ.<br>
+                    أَحْمَدُ: جَمِيْلٌ! مَاذَا تَقْرَئِيْنَ؟<br>
+                    فَاطِمَةُ: أَقْرَأُ الْقَصَصَ وَالرِّوَايَاتِ. وَمَا هِوَايَتُكَ أَنْتَ؟<br>
+                    أَحْمَدُ: أُحِبُّ كُرَةَ الْقَدَمِ وَالسِّبَاحَةَ.<br>
+                    فَاطِمَةُ: مُمْتَازٌ! هَلْ تَلْعَبُ كُلَّ يَوْمٍ؟<br>
+                    أَحْمَدُ: نَعَمْ، أَلْعَبُ مَعَ أَصْدِقَائِيْ فِي الْمَلْعَبِ بَعْدَ الْعَصْرِ.
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic; direction: ltr; text-align: left;">
+                    <strong>Terjemahan:</strong> Ahmad: "Assalamu'alaikum Fatimah. Apa hobimu?" | Fatimah: "Wa'alaikumussalam Ahmad. Hobiku adalah membaca dan menulis." | Ahmad: "Bagus! Apa yang kamu baca?" | Fatimah: "Aku membaca cerita dan novel. Dan apa hobimu?" | Ahmad: "Aku suka sepak bola dan berenang." | Fatimah: "Hebat! Apakah kamu bermain setiap hari?" | Ahmad: "Ya, aku bermain bersama teman-temanku di lapangan setelah Ashar."
+                </p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_DIALOG" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Contoh Dialog Wawancara Hobi</a>
+        </div>
+
+        <div class="section-block">
+            <h2>E. Studi Kasus & Perbandingan Metode Belajar</h2>
+            <p>Untuk memastikan siswa dapat mengekspresikan hobi mereka dengan percaya diri, pendekatan komunikatif sangat efektif. Berikut perbandingan metode:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Metode Konvensional</th>
+                        <th>Metode Komunikatif (Buku Ini)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengenalan Kosakata</strong></td>
+                        <td>Menghafal daftar kata hobi tanpa konteks.</td>
+                        <td>Siswa membuat "Pohon Hobi" di kelas — setiap siswa menempelkan kartu hobi mereka di pohon bersama, lalu mempresentasikannya.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latihan Fi'il Mudhari'</strong></td>
+                        <td>Mengerjakan soal tasrif di kertas.</td>
+                        <td>Role-play wawancara: Siswa berkeliling kelas dan mewawancarai 5 teman tentang hobi mereka.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Output Siswa</strong></td>
+                        <td>Mampu menerjemahkan kalimat tentang hobi.</td>
+                        <td>Mampu membuat video pendek "Hobi Saya" berdurasi 1 menit dalam bahasa Arab.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>🎯 Studi Kasus: "Pameran Hobi Kelas"</h4>
+                <p>Setiap siswa diminta membawa benda atau karya yang mewakili hobinya ke kelas. Contoh: siswa yang hobi menggambar membawa gambarnya, siswa yang hobi memasak membawa resep sederhana. Kemudian, mereka mempresentasikannya:</p>
+                <div class="arabic-text" style="margin: 1rem 0; font-size: 1.2rem;">
+                    هِوَايَتِي الرِّسْمُ. هَذَا رَسْمِيْ. أُحِبُّ أَنْ أَرْسُمَ الطَّبِيْعَةَ.
+                </div>
+                <p>Proyek ini melatih <strong>4 keterampilan</strong>: <em>menulis</em> (naskah presentasi), <em>membaca</em> (naskah sendiri), <em>menyimak</em> (presentasi teman), dan <em>berbicara</em> (presentasi di depan kelas).</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>F. Hobi yang Bermanfaat dalam Perspektif Islam</h2>
+            <p>Dalam Islam, waktu adalah amanah yang sangat berharga. Rasulullah ﷺ bersabda: <em>"Dua kenikmatan yang banyak manusia tertipu di dalamnya, yaitu kesehatan dan waktu luang"</em> (HR. Bukhari). Oleh karena itu, hobi yang baik adalah hobi yang memberikan manfaat dunia dan akhirat.</p>
+
+            <h3>Kategori Hobi dalam Islam:</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Contoh Hobi</th>
+                        <th>Nilai Islami</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hobi Ibadah</strong></td>
+                        <td>حِفْظُ الْقُرْآنِ (menghafal Qur'an), الصَّلَاةُ فِي الْمَسْجِدِ (shalat di masjid), الذِّكْرُ (berdzikir)</td>
+                        <td>Mendekatkan diri kepada Allah, pahala berlipat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hobi Ilmu</strong></td>
+                        <td>الْقِرَاءَةُ (membaca), الْمُطَالَعَةُ (menelaah buku), الْكِتَابَةُ (menulis)</td>
+                        <td>"Tuntutlah ilmu dari buaian hingga liang lahat"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hobi Olahraga</strong></td>
+                        <td>السِّبَاحَةُ (berenang), الرِّمَايَةُ (memanah), كُرَةُ الْقَدَمِ (sepak bola)</td>
+                        <td>Menjaga kesehatan — "Mukmin yang kuat lebih baik dari mukmin yang lemah"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hobi Keterampilan</strong></td>
+                        <td>الطَّبْخُ (memasak), الْخَيْطُ (menjahit), الرِّسْمُ (menggambar)</td>
+                        <td>Kemandirian dan kreativitas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Tiga Olahraga yang Dianjurkan Rasulullah ﷺ:</h4>
+                <p>Diriwayatkan dari Umar bin Khaththab r.a., Rasulullah ﷺ bersabda: <em>"Ajarkanlah kepada anak-anak kalian tiga keterampilan: memanah, berenang, dan berkuda."</em> (HR. Bukhari). Hadis ini menunjukkan pentingnya keseimbangan antara kekuatan fisik dan keterampilan praktis.</p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_HOBI_ISLAMI" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Hobi Produktif dalam Islam</a>
+        </div>
+
+        <div class="section-block">
+            <h2>G. Tantangan dan Tips Belajar untuk Siswa</h2>
+            <ul>
+                <li><strong>Tantangan:</strong> Kesulitan menghafal fi'il mudhari' dengan berbagai dhomir.</li>
+                <li><strong>Solusi:</strong> Gunakan lagu atau nyanyian untuk menghafal tasrif. Otak lebih mudah mengingat informasi yang berirama.</li>
+                <li><strong>Tantangan:</strong> Bingung membedakan mashdar dan fi'il.</li>
+                <li><strong>Solusi:</strong> Ingat rumus: <em>Mashdar = nama kegiatan (membaca), Fi'il = kata kerja (saya membaca)</em>. Latih dengan membuat kalimat sederhana setiap hari.</li>
+                <li><strong>Tantangan:</strong> Takut berbicara di depan kelas.</li>
+                <li><strong>Solusi:</strong> Mulailah berlatih dengan teman sebangku sebelum tampil di depan kelas. Persiapan adalah kunci kepercayaan diri.</li>
+                <li><strong>Tantangan:</strong> Lupa kosakata hobi saat berbicara.</li>
+                <li><strong>Solusi:</strong> Buat "Kartu Hobi" di ponsel — setiap kali bertemu kata baru, catat dan ulangi selama 5 menit sebelum tidur.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2>◆ Kata Kunci Bab Ini</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْهِوَايَةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْفِعْلُ الْمُضَارِعُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">أُحِبُّ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْقِرَاءَةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">السِّبَاحَةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">كِتَابَةٌ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">أُفَضِّلُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">وَقْتُ الْفَرَاغِ</span>
+            </div>
+        </div>
+
+        <div class="section-block" style="text-align: center; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📝 Uji Pemahaman Anda</h3>
+            <p style="margin-bottom: 1.5rem;">Setelah mempelajari Pertemuan 3, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan 5 esai seputar kosakata hobi, Fi'il Mudhari', dan ungkapan kesukaan.</p>
+            <a href="uji-formatif-3.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                📝 Ikuti Uji Formatif Pertemuan 3 →
+            </a>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="2.html" class="btn btn-outline">← Pertemuan 2: Al-Manzil</a>
+            <a href="index.html" class="btn btn-secondary">📚 Daftar Pertemuan</a>
+            <a href="4.html" class="btn btn-primary">Pertemuan 4: Al-Mihan →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>Buku daras untuk siswa MTs. Teori, praktik, dan aplikasi bahasa Arab komunikatif bernuansa Islami.</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="1.html">Pertemuan 1</a>
+                <a href="2.html">Pertemuan 2</a>
+                <a href="index.html#daftar-pertemuan">Daftar Pertemuan</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(212, 175, 55, 0.05); border-radius: 8px; display: inline-block;">
+                <p style="color: var(--gold-light); margin-bottom: 0.5rem;"><strong>Informasi Buku:</strong></p>
+                <p>Cetak — Rp 149.000 | E-Book — Rp 89.000</p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <p>Kontak Penulis:</p>
+                <a href="mailto:armi1919wahid@gmail.com" style="color: var(--gold-primary); text-decoration: none;">armi1919wahid@gmail.com</a>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">MTsS Diniyah Limo Jurai</p>
+            </div>
+
+            <p class="copyright">© 2026 ARMI WAHID., S.PdI. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

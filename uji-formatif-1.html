@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uji Formatif Pertemuan 1 - Al-Madrasah | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --success: #4CAF50;
+            --error: #F44336;
+            --warning: #FF9800;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 10, 0.5) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-header::before {
+            content: '📝';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.05;
+            top: -20px;
+            right: -20px;
+        }
+
+        .quiz-badge {
+            display: inline-block;
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quiz-header .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .quiz-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .quiz-meta-item strong { color: var(--gold-primary); }
+
+        /* Student Info Form */
+        .student-info {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .student-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full-width { grid-column: 1 / -1; }
+
+        .form-group label {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-primary);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        /* Section */
+        .section-block {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            flex-shrink: 0;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin: 0;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Question */
+        .question {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-number {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            min-width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .question-text {
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.6;
+            padding-top: 0.3rem;
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            margin: 0.8rem 0;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            line-height: 2;
+        }
+
+        /* Options */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .option input[type="radio"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold-primary);
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .option input[type="radio"]:checked {
+            background: var(--gold-primary);
+        }
+
+        .option input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+        }
+
+        .option label {
+            cursor: pointer;
+            color: var(--text-secondary);
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .option:has(input:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .option:has(input:checked) label {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Essay */
+        .essay-textarea {
+            width: 100%;
+            min-height: 100px;
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            resize: vertical;
+            transition: all 0.3s ease;
+            margin-top: 0.8rem;
+        }
+
+        .essay-textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .essay-hint {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 10, 10, 0.5) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+        }
+
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-submit:active { transform: translateY(-1px); }
+
+        .btn-reset {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-secondary);
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-reset:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        /* Result Modal */
+        .result-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .result-modal.active { display: flex; }
+
+        .result-content {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .score-display {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+        }
+
+        .score-label {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .result-message {
+            padding: 1rem;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            color: var(--gold-light);
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .close-modal {
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover { background: var(--gold-light); }
+
+        /* Navigation */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .quiz-header h1 { font-size: 1.6rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .btn-reset { margin-left: 0; margin-top: 1rem; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Uji Formatif - Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="1.html">📖 Materi Pertemuan 1</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        
+        <!-- Quiz Header -->
+        <div class="quiz-header">
+            <span class="quiz-badge">UJI FORMATIF</span>
+            <h1>Pertemuan 1: Al-Madrasah<br><span style="font-size: 0.7em; color: var(--text-secondary); font-style: italic;">المَدْرَسَةُ</span></h1>
+            <p class="subtitle">Ukur pemahaman Anda tentang kosakata sekolah, Isim Isyarah, dan Jumlah Ismiyyah dalam bahasa Arab.</p>
+            <div class="quiz-meta">
+                <div class="quiz-meta-item">
+                    <span>📝</span>
+                    <span><strong>15 Soal</strong> (10 PG + 5 Esai)</span>
+                </div>
+                <div class="quiz-meta-item">
+                    <span>⏱️</span>
+                    <span><strong>30 Menit</strong></span>
+                </div>
+                <div class="quiz-meta-item">
+                    <span>🎯</span>
+                    <span><strong>KKM:</strong> 75</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Info -->
+        <div class="student-info">
+            <h3>👤 Data Siswa</h3>
+            <form id="studentForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nis">NIS (Nomor Induk Siswa)</label>
+                        <input type="text" id="nis" name="nis" placeholder="Masukkan NIS" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kelas">Kelas</label>
+                        <select id="kelas" name="kelas" required>
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="VII-A">VII-A</option>
+                            <option value="VII-B">VII-B</option>
+                            <option value="VII-C">VII-C</option>
+                            <option value="VII-D">VII-D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal Mengerjakan</label>
+                        <input type="date" id="tanggal" name="tanggal" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Section A: Pilihan Ganda -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">A</div>
+                <div>
+                    <h2>Pilihan Ganda</h2>
+                    <p>Pilih satu jawaban yang paling tepat. (Bobot: 6 poin per soal)</p>
+                </div>
+            </div>
+
+            <!-- Soal 1 -->
+            <div class="question" data-correct="c">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question-text">Apa arti dari kata <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.3rem;">المَكْتَبَةُ</span> dalam bahasa Indonesia?</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="a"><label>Masjid</label></label>
+                    <label class="option"><input type="radio" name="q1" value="b"><label>Lapangan</label></label>
+                    <label class="option"><input type="radio" name="q1" value="c"><label>Perpustakaan</label></label>
+                    <label class="option"><input type="radio" name="q1" value="d"><label>Ruang Kelas</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 2 -->
+            <div class="question" data-correct="a">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question-text">Isim Isyarah (kata tunjuk) yang digunakan untuk menunjuk benda <strong>dekat</strong> berjenis <strong>muzakkar</strong> (laki-laki) adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="a"><label>هَذَا (Haza)</label></label>
+                    <label class="option"><input type="radio" name="q2" value="b"><label>هَذِهِ (Hadzihi)</label></label>
+                    <label class="option"><input type="radio" name="q2" value="c"><label>ذَلِكَ (Dzalika)</label></label>
+                    <label class="option"><input type="radio" name="q2" value="d"><label>تِلْكَ (Tilka)</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 3 -->
+            <div class="question" data-correct="b">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question-text">Kalimat <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.3rem;">هَذِهِ مَكْتَبَةٌ</span> memiliki arti...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="a"><label>Itu sebuah perpustakaan</label></label>
+                    <label class="option"><input type="radio" name="q3" value="b"><label>Ini sebuah perpustakaan</label></label>
+                    <label class="option"><input type="radio" name="q3" value="c"><label>Ini sebuah lapangan</label></label>
+                    <label class="option"><input type="radio" name="q3" value="d"><label>Itu sebuah masjid</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 4 -->
+            <div class="question" data-correct="d">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question-text">Pasangan Isim Isyarah yang tepat untuk menunjuk benda <strong>jauh</strong> berjenis <strong>muannats</strong> (perempuan) adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="a"><label>هَذَا</label></label>
+                    <label class="option"><input type="radio" name="q4" value="b"><label>ذَلِكَ</label></label>
+                    <label class="option"><input type="radio" name="q4" value="c"><label>هَذِهِ</label></label>
+                    <label class="option"><input type="radio" name="q4" value="d"><label>تِلْكَ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 5 -->
+            <div class="question" data-correct="c">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question-text">Dalam kalimat <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.3rem;">هَذَا الْفَصْلُ كَبِيْرٌ</span>, kata yang berkedudukan sebagai <strong>Khabar</strong> (predikat) adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="a"><label>هَذَا</label></label>
+                    <label class="option"><input type="radio" name="q5" value="b"><label>الْفَصْلُ</label></label>
+                    <label class="option"><input type="radio" name="q5" value="c"><label>كَبِيْرٌ</label></label>
+                    <label class="option"><input type="radio" name="q5" value="d"><label>هَذَا الْفَصْلُ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 6 -->
+            <div class="question" data-correct="a">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question-text">Kata <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.3rem;">الْمَسْجِدُ</span> termasuk isim <strong>muzakkar</strong> (laki-laki). Maka isim isyarah yang tepat untuk menunjuknya adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="a"><label>هَذَا الْمَسْجِدُ</label></label>
+                    <label class="option"><input type="radio" name="q6" value="b"><label>هَذِهِ الْمَسْجِدُ</label></label>
+                    <label class="option"><input type="radio" name="q6" value="c"><label>تِلْكَ الْمَسْجِدُ</label></label>
+                    <label class="option"><input type="radio" name="q6" value="d"><label>هَذِهِ الْمَسْجِدَةُ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 7 -->
+            <div class="question" data-correct="b">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question-text">Kalimat <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.3rem;">تِلْكَ الْمَكْتَبَةُ بَعِيْدَةٌ</span> memiliki arti...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="a"><label>Perpustakaan ini dekat</label></label>
+                    <label class="option"><input type="radio" name="q7" value="b"><label>Perpustakaan itu jauh</label></label>
+                    <label class="option"><input type="radio" name="q7" value="c"><label>Perpustakaan itu besar</label></label>
+                    <label class="option"><input type="radio" name="q7" value="d"><label>Perpustakaan ini bersih</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 8 -->
+            <div class="question" data-correct="c">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question-text">Komponen dasar dari <strong>Jumlah Ismiyyah</strong> (kalimat nominal) adalah...</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"><label>Fi'il dan Fa'il (Kata kerja dan Pelaku)</label></label>
+                    <label class="option"><input type="radio" name="q8" value="b"><label>Mubtada' dan Fi'il</label></label>
+                    <label class="option"><input type="radio" name="q8" value="c"><label>Mubtada' dan Khabar (Subjek dan Predikat)</label></label>
+                    <label class="option"><input type="radio" name="q8" value="d"><label>Isim dan Huruf Jar</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 9 -->
+            <div class="question" data-correct="d">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question-text">Manakah di bawah ini yang merupakan terjemahan yang <strong>TEPAT</strong> untuk kalimat: <em>"Itu (jauh) sebuah lapangan."</em></div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a"><label>هَذَا مَلْعَبٌ</label></label>
+                    <label class="option"><input type="radio" name="q9" value="b"><label>هَذَا الْمَلْعَبُ كَبِيْرٌ</label></label>
+                    <label class="option"><input type="radio" name="q9" value="c"><label>تِلْكَ الْمَلْعَبُ</label></label>
+                    <label class="option"><input type="radio" name="q9" value="d"><label>ذَلِكَ مَلْعَبٌ</label></label>
+                </div>
+            </div>
+
+            <!-- Soal 10 -->
+            <div class="question" data-correct="b">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question-text">Dalam konteks pembelajaran bahasa Arab, mengapa penting bagi siswa untuk menghafal kosakata lingkungan sekolah?</div>
+                </div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a"><label>Agar bisa menerjemahkan buku teks dengan cepat</label></label>
+                    <label class="option"><input type="radio" name="q10" value="b"><label>Agar mampu berkomunikasi dan mendeskripsikan lingkungan sekitarnya dalam bahasa Arab</label></label>
+                    <label class="option"><input type="radio" name="q10" value="c"><label>Agar bisa menulis surat dalam bahasa Arab</label></label>
+                    <label class="option"><input type="radio" name="q10" value="d"><label>Agar bisa membaca Al-Qur'an dengan lancar</label></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section B: Esai -->
+        <div class="section-block">
+            <div class="section-title">
+                <div class="section-number">B</div>
+                <div>
+                    <h2>Esai Singkat</h2>
+                    <p>Jawablah pertanyaan berikut dengan jelas dan lengkap. (Bobot: 8 poin per soal)</p>
+                </div>
+            </div>
+
+            <!-- Soal 11 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">11</div>
+                    <div class="question-text">Sebutkan <strong>lima (5)</strong> kosakata bahasa Arab yang berkaitan dengan lingkungan sekolah beserta artinya dalam bahasa Indonesia!</div>
+                </div>
+                <textarea class="essay-textarea" name="q11" placeholder="Contoh: الْمَدْرَسَةُ = Sekolah, ..."></textarea>
+                <p class="essay-hint">💡 Tuliskan dalam format: كَلِمَةٌ = Arti</p>
+            </div>
+
+            <!-- Soal 12 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">12</div>
+                    <div class="question-text">Jelaskan perbedaan antara <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">هَذَا</span> dan <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">هَذِهِ</span>! Berikan masing-masing satu contoh kalimat!</div>
+                </div>
+                <textarea class="essay-textarea" name="q12" placeholder="Tuliskan penjelasan Anda di sini..."></textarea>
+            </div>
+
+            <!-- Soal 13 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">13</div>
+                    <div class="question-text">Buatlah <strong>dua (2) kalimat</strong> menggunakan Isim Isyarah untuk benda <strong>jauh</strong> (ذَلِكَ / تِلْكَ) yang berkaitan dengan lingkungan MTsS Diniyah Limo Jurai!</div>
+                </div>
+                <textarea class="essay-textarea" name="q13" placeholder="1. ...&#10;2. ..."></textarea>
+            </div>
+
+            <!-- Soal 14 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">14</div>
+                    <div class="question-text">Perhatikan kalimat berikut:<br>
+                        <div class="arabic-text">تِلْكَ الْمَسْجِدُ كَبِيْرٌ وَجَمِيْلٌ</div>
+                        Tentukan mana yang merupakan <strong>Mubtada'</strong> dan mana yang merupakan <strong>Khabar</strong>! Kemudian, terjemahkan kalimat tersebut ke dalam bahasa Indonesia!
+                    </div>
+                </div>
+                <textarea class="essay-textarea" name="q14" placeholder="Mubtada': ...&#10;Khabar: ...&#10;Terjemahan: ..."></textarea>
+            </div>
+
+            <!-- Soal 15 -->
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">15</div>
+                    <div class="question-text">Terjemahkan kalimat berikut ke dalam bahasa Arab:<br>
+                        <em>"Ini kelas kami. Kelas ini bersih dan rapi."</em>
+                    </div>
+                </div>
+                <textarea class="essay-textarea" name="q15" dir="rtl" placeholder="..."></textarea>
+                <p class="essay-hint">💡 Gunakan kosakata: الْفَصْلُ (kelas), نَحْنُ (kami), نَظِيْفٌ (bersih), مُرَتَّبٌ (rapi)</p>
+            </div>
+        </div>
+
+        <!-- Submit Section -->
+        <div class="submit-section">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📤 Selesai Mengerjakan?</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Pastikan semua jawaban telah diisi dengan lengkap sebelum mengirim.</p>
+            <button type="button" class="btn-submit" onclick="submitQuiz()">
+                ✨ Kirim Jawaban & Lihat Nilai
+            </button>
+            <button type="button" class="btn-reset" onclick="resetQuiz()">
+                🔄 Reset Jawaban
+            </button>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="1.html" class="btn btn-outline">← Kembali ke Materi Pertemuan 1</a>
+            <a href="index.html" class="btn btn-secondary">📚 Daftar Pertemuan</a>
+            <a href="2.html" class="btn btn-primary">Pertemuan 2: Al-Manzil →</a>
+        </div>
+    </main>
+
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <div class="result-icon" id="resultIcon">🎉</div>
+            <h2 id="resultTitle">Hasil Uji Formatif</h2>
+            <div class="score-display" id="scoreDisplay">0</div>
+            <p class="score-label">dari 100 poin</p>
+            <div class="result-message" id="resultMessage"></div>
+            <button class="close-modal" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>Buku daras untuk siswa MTs. Teori, praktik, dan aplikasi bahasa Arab komunikatif bernuansa Islami.</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="1.html">Materi Pertemuan 1</a>
+                <a href="index.html#daftar-pertemuan">Daftar Pertemuan</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <p>Kontak Penulis:</p>
+                <a href="mailto:armi1919wahid@gmail.com" style="color: var(--gold-primary); text-decoration: none;">armi1919wahid@gmail.com</a>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">MTsS Diniyah Limo Jurai</p>
+            </div>
+
+            <p class="copyright">© 2026 ARMI WAHID., S.PdI. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const answerKey = {
+            q1: 'c',   // المكتبة = Perpustakaan
+            q2: 'a',   // هَذَا untuk dekat muzakkar
+            q3: 'b',   // هَذِهِ مَكْتَبَةٌ = Ini sebuah perpustakaan
+            q4: 'd',   // تِلْكَ untuk jauh muannats
+            q5: 'c',   // كَبِيْرٌ adalah khabar
+            q6: 'a',   // هَذَا الْمَسْجِدُ (masjid = muzakkar)
+            q7: 'b',   // تِلْكَ الْمَكْتَبَةُ بَعِيْدَةٌ = Perpustakaan itu jauh
+            q8: 'c',   // Mubtada' dan Khabar
+            q9: 'd',   // ذَلِكَ مَلْعَبٌ (lapangan = muzakkar, jauh)
+            q10: 'b'   // Agar mampu berkomunikasi dan mendeskripsikan
+        };
+
+        // Submit Quiz
+        function submitQuiz() {
+            // Validasi data siswa
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            const tanggal = document.getElementById('tanggal').value;
+
+            if (!nama || !nis || !kelas || !tanggal) {
+                alert('⚠️ Mohon lengkapi data siswa (Nama, NIS, Kelas, dan Tanggal) sebelum mengirim jawaban.');
+                return;
+            }
+
+            // Hitung nilai PG
+            let correctCount = 0;
+            let unanswered = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selected) {
+                    unanswered++;
+                } else if (selected.value === answerKey[`q${i}`]) {
+                    correctCount++;
+                }
+            }
+
+            if (unanswered > 0) {
+                const confirm = window.confirm(`⚠️ Masih ada ${unanswered} soal pilihan ganda yang belum dijawab. Tetap kirim?`);
+                if (!confirm) return;
+            }
+
+            // Hitung nilai (PG = 60 poin, Esai = 40 poin - estimasi otomatis)
+            const pgScore = (correctCount / 10) * 60;
+            // Untuk esai, beri nilai estimasi 70% sebagai placeholder (karena butuh koreksi manual guru)
+            const essayScore = 28; // 70% dari 40
+            const totalScore = Math.round(pgScore + essayScore);
+
+            // Tampilkan hasil
+            showResult(totalScore, correctCount, nama, nis);
+        }
+
+        function showResult(score, correct, nama, nis) {
+            const modal = document.getElementById('resultModal');
+            const icon = document.getElementById('resultIcon');
+            const title = document.getElementById('resultTitle');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const message = document.getElementById('resultMessage');
+
+            scoreDisplay.textContent = score;
+
+            let iconText, titleText, messageText;
+            if (score >= 85) {
+                iconText = '🏆';
+                titleText = 'Masya Allah, Mumtaz!';
+                messageText = `Selamat ${nama} (NIS: ${nis})! Anda menunjukkan penguasaan materi yang sangat baik. Pertahankan semangat belajar bahasa Arab!`;
+            } else if (score >= 75) {
+                iconText = '🎉';
+                titleText = 'Jayyid Jiddan!';
+                messageText = `Bagus ${nama} (NIS: ${nis})! Anda telah mencapai KKM. Terus tingkatkan pemahaman Anda pada materi Isim Isyarah dan Jumlah Ismiyyah.`;
+            } else if (score >= 60) {
+                iconText = '📚';
+                titleText = 'Jayyid!';
+                messageText = `${nama} (NIS: ${nis}), Anda hampir mencapai KKM. Silakan ulangi materi Pertemuan 1 dan coba lagi uji formatif ini.`;
+            } else {
+                iconText = '💪';
+                titleText = 'Terus Semangat!';
+                messageText = `${nama} (NIS: ${nis}), jangan berkecil hati. Pelajari kembali kosakata sekolah dan Isim Isyarah, lalu coba lagi. Anda pasti bisa!`;
+            }
+
+            icon.textContent = iconText;
+            title.textContent = titleText;
+            message.textContent = messageText;
+
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('resultModal').classList.remove('active');
+        }
+
+        function resetQuiz() {
+            if (confirm('⚠️ Apakah Anda yakin ingin mereset semua jawaban? Data yang sudah diisi akan hilang.')) {
+                document.querySelectorAll('input[type="radio"]').forEach(input => input.checked = false);
+                document.querySelectorAll('.essay-textarea').forEach(textarea => textarea.value = '');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Set tanggal hari ini sebagai default
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('tanggal').value = today;
+        });
+    </script>
+
+</body>
+</html>

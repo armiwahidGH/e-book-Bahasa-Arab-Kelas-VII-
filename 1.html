@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 1 - Al-Madrasah (Sekolah) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-header p { color: var(--text-secondary); font-size: 1.1rem; font-style: italic; }
+
+        .section-block { margin-bottom: 3rem; }
+        .section-block h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .section-block h3 { font-size: 1.3rem; color: var(--gold-light); margin: 1.5rem 0 1rem 0; }
+        .section-block p, .section-block li { color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; }
+        .section-block ul, .section-block ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .section-block li { margin-bottom: 0.5rem; }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin: 1rem 0;
+            line-height: 2;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .comparison-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(212, 175, 55, 0.05); color: var(--text-primary); }
+
+        /* Highlight Box & Video Button */
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1.2rem; }
+
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .btn-video:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Navigation Buttons */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .chapter-header h1 { font-size: 1.8rem; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+                <a href="index.html#penulis">✍️ Penulis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="chapter-header">
+            <h1>Pertemuan 1<br>Al-Madrasah (المَدْرَسَةُ)</h1>
+            <p>Pengenalan lingkungan sekolah, kosakata dasar, dan struktur kalimat sederhana menggunakan Isim Isyarah dalam konteks madrasah.</p>
+        </div>
+
+        <div class="section-block">
+            <h2>A. Pengenalan Lingkungan Sekolah (التَّعَرُّفُ عَلَى الْمَدْرَسَةِ)</h2>
+            <p>Madrasah adalah rumah kedua bagi setiap siswa. Mempelajari nama-nama bagian sekolah dalam bahasa Arab adalah langkah awal yang krusial untuk membangun kepercayaan diri dalam berkomunikasi. Berikut adalah kosakata inti yang wajib dikuasai:</p>
+            <ul>
+                <li><strong>الْمَدْرَسَةُ</strong> (Al-Madrasah) = Sekolah</li>
+                <li><strong>الْفَصْلُ</strong> (Al-Fashlu) = Ruang Kelas</li>
+                <li><strong>الْمَكْتَبَةُ</strong> (Al-Maktabah) = Perpustakaan</li>
+                <li><strong>الْمَلْعَبُ</strong> (Al-Mal'abu) = Lapangan</li>
+                <li><strong>الْمَسْجِدُ</strong> (Al-Masjidu) = Masjid</li>
+                <li><strong>الْمَكْتَبُ</strong> (Al-Maktabu) = Meja</li>
+                <li><strong>الْكُرْسِيُّ</strong> (Al-Kursiyyu) = Kursi</li>
+            </ul>
+            
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_1" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Kosakata Lingkungan Sekolah</a>
+        </div>
+
+        <div class="section-block">
+            <h2>B. Tata Bahasa Dasar: Isim Isyarah (اِسْمُ الْإِشَارَةِ)</h2>
+            <p>Dalam bahasa Arab, untuk menunjuk suatu benda, kita menggunakan <em>Isim Isyarah</em> (Kata Tunjuk). Penggunaannya bergantung pada jarak benda dan jenis kelamin kata (muzakkar/muannats).</p>
+            
+            <h3>1. Untuk Benda Dekat (القَرِيْبُ)</h3>
+            <div class="arabic-text">
+                هَذَا (Haza) = Ini (untuk laki-laki/muzakkar)<br>
+                هَذِهِ (Hadzihi) = Ini (untuk perempuan/muannats)
+            </div>
+            <p><em>Contoh:</em> هَذَا فَصْلٌ (Ini sebuah kelas) / هَذِهِ مَكْتَبَةٌ (Ini sebuah perpustakaan).</p>
+
+            <h3>2. Untuk Benda Jauh (الْبَعِيْدُ)</h3>
+            <div class="arabic-text">
+                ذَلِكَ (Dzalika) = Itu (untuk laki-laki/muzakkar)<br>
+                تِلْكَ (Tilka) = Itu (untuk perempuan/muannats)
+            </div>
+            <p><em>Contoh:</em> ذَلِكَ مَسْجِدٌ (Itu sebuah masjid) / تِلْكَ مَكْتَبَةٌ (Itu sebuah perpustakaan).</p>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_2" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Penjelasan Isim Isyarah</a>
+        </div>
+
+        <div class="section-block">
+            <h2>C. Struktur Kalimat: Jumlah Ismiyyah (الْجُمْلَةُ الِاسْمِيَّةُ)</h2>
+            <p>Kalimat dalam bahasa Arab yang diawali dengan kata benda (isim) disebut <em>Jumlah Ismiyyah</em>. Struktur dasarnya terdiri dari dua komponen utama:</p>
+            <ol>
+                <li><strong>Mubtada' (المُبْتَدَأُ):</strong> Subjek atau pokok pembicaraan, selalu berbaris rafa' (dhommah).</li>
+                <li><strong>Khabar (الْخَبَرُ):</strong> Predikat atau penjelas dari mubtada', juga berbaris rafa' (dhommah).</li>
+            </ol>
+            <div class="highlight-box">
+                <h4>📌 Contoh Penerapan:</h4>
+                <div class="arabic-text">
+                    هَذَا الْمَسْجِدُ كَبِيْرٌ<br>
+                    <span style="font-size: 1rem; color: var(--text-secondary);">(Haza al-masjidu kabiirun)</span><br>
+                    <span style="font-size: 1rem; color: var(--text-secondary);">Mubtada': هَذَا الْمَسْجِدُ (Masjid ini) | Khabar: كَبِيْرٌ (besar)</span><br>
+                    <span style="font-size: 1rem; color: var(--gold-light);">Arti: "Masjid ini besar."</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>D. Studi Kasus & Perbandingan Metode Belajar</h2>
+            <p>Untuk memastikan siswa kelas VII dapat menguasai materi ini dengan optimal, pendekatan pembelajaran harus disesuaikan. Berikut adalah perbandingan metode tradisional dengan pendekatan komunikatif yang digunakan dalam buku ini:</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Metode Tradisional (Hafalan)</th>
+                        <th>Metode Komunikatif (Dalam Buku Ini)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengenalan Kosakata</strong></td>
+                        <td>Menyalin dan menghafal daftar kata tanpa konteks.</td>
+                        <td>Mengamati gambar lingkungan MTsS Diniyah Limo Jurai dan mencocokkan label bahasa Arab.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latihan Tata Bahasa</strong></td>
+                        <td>Menghafal rumus Isim Isyarah secara abstrak.</td>
+                        <td>Role-play: Siswa saling menunjuk benda di kelas dan mengucapkan "Haza..." atau "Hadzihi...".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Output Siswa</strong></td>
+                        <td>Mampu menerjemahkan kata per kata.</td>
+                        <td>Mampu membuat 5 kalimat deskripsi sederhana tentang sekolahnya secara lisan.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>🎯 Studi Kasus: "Tamu Baru di Madrasah"</h4>
+                <p>Seorang siswa baru bertanya kepada Anda: <em>"Aina al-maktabah?"</em> (Di mana perpustakaan?). Sebagai siswa yang baik, Anda tidak hanya menunjuk arah, tetapi menjawab dengan kalimat utuh: <span class="arabic-text" style="margin: 0.5rem 0; font-size: 1.2rem;">تِلْكَ الْمَكْتَبَةُ هُنَاكَ</span> (Perpustakaan itu di sana). Ini adalah aplikasi nyata dari Jumlah Ismiyyah dan Isim Isyarah.</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>E. Adab dan Nilai Islami di Lingkungan Sekolah</h2>
+            <p>Pembelajaran bahasa Arab tidak terlepas dari penanaman akhlak. Dalam konteks <em>Al-Madrasah</em>, siswa diajak untuk mengintegrasikan bahasa dengan adab:</p>
+            <ul>
+                <li><strong>Menghormati Guru:</strong> Menggunakan kata ganti yang sopan dan mendengarkan saat guru menjelaskan.</li>
+                <li><strong>Menjaga Kebersihan:</strong> Mengaitkan kosakata <strong>النَّظَافَةُ</strong> (kebersihan) dengan tindakan membuang sampah pada tempatnya di <strong>الْفَصْلُ</strong> (kelas).</li>
+                <li><strong>Doa Masuk Sekolah:</strong> Melafalkan doa dengan pemahaman makna, bukan sekadar hafalan bunyi.</li>
+            </ul>
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_3" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Adab dan Kosakata Sekolah</a>
+        </div>
+
+        <div class="section-block">
+            <h2>F. Tantangan dan Tips Belajar untuk Siswa Kelas VII</h2>
+            <p>Memasuki jenjang Madrasah Tsanawiyah, siswa sering menghadapi tantangan baru dalam belajar bahasa asing. Berikut tips mengatasinya:</p>
+            <ul>
+                <li><strong>Tantangan:</strong> Perbedaan struktur kalimat (Bahasa Indonesia: S-P-O, Arab: P-S-O atau Mubtada'-Khabar).</li>
+                <li><strong>Solusi:</strong> Perbanyak membuat <em>flashcard</em> (kartu kosakata) yang ditempel di benda-benda nyata di sekitar rumah atau kelas.</li>
+                <li><strong>Tantangan:</strong> Ketakutan salah berbicara (speaking anxiety).</li>
+                <li><strong>Solusi:</strong> Berlatih dengan teman sebangku dalam suasana santai. Kesalahan adalah bagian dari proses belajar.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2>◆ Kata Kunci Bab Ini</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">المَدْرَسَةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْفَصْلُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">هَذَا / هَذِهِ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">ذَلِكَ / تِلْكَ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">مُبْتَدَأٌ وَخَبَرٌ</span>
+            </div>
+        </div>
+
+        <div class="section-block" style="text-align: center; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📝 Uji Pemahaman Anda</h3>
+            <p style="margin-bottom: 1.5rem;">Setelah mempelajari Pertemuan 1, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan isian singkat seputar kosakata sekolah dan Isim Isyarah.</p>
+            <a href="uji-formatif-1.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                📝 Ikuti Uji Formatif Pertemuan 1 →
+            </a>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="index.html" class="btn btn-outline">← Kembali ke Daftar Isi</a>
+            <a href="2.html" class="btn btn-secondary">Pertemuan 2: Al-Manzil (Rumah) →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>Buku daras untuk siswa MTs. Teori, praktik, dan aplikasi bahasa Arab komunikatif bernuansa Islami.</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="index.html#daftar-pertemuan">Daftar Pertemuan</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(212, 175, 55, 0.05); border-radius: 8px; display: inline-block;">
+                <p style="color: var(--gold-light); margin-bottom: 0.5rem;"><strong>Informasi Buku:</strong></p>
+                <p>Cetak — Rp 149.000 | E-Book — Rp 89.000</p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <p>Kontak Penulis:</p>
+                <a href="mailto:armi1919wahid@gmail.com" style="color: var(--gold-primary); text-decoration: none;">armi1919wahid@gmail.com</a>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">MTsS Diniyah Limo Jurai</p>
+            </div>
+
+            <p class="copyright">© 2026 ARMI WAHID., S.PdI. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

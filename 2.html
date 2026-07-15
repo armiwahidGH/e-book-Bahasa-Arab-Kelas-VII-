@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 2 - Al-Manzil (Rumah) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-header p { color: var(--text-secondary); font-size: 1.1rem; font-style: italic; }
+
+        .section-block { margin-bottom: 3rem; }
+        .section-block h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .section-block h3 { font-size: 1.3rem; color: var(--gold-light); margin: 1.5rem 0 1rem 0; }
+        .section-block p, .section-block li { color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; }
+        .section-block ul, .section-block ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .section-block li { margin-bottom: 0.5rem; }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin: 1rem 0;
+            line-height: 2;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .vocab-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .vocab-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .vocab-arabic {
+            direction: rtl;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-transliteration {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .vocab-meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .comparison-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(212, 175, 55, 0.05); color: var(--text-primary); }
+
+        /* Highlight Box & Video Button */
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1.2rem; }
+
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .btn-video:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Navigation Buttons */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .chapter-header h1 { font-size: 1.8rem; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+                <a href="index.html#penulis">✍️ Penulis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="chapter-header">
+            <h1>Pertemuan 2<br>Al-Manzil (الْمَنْزِلُ)</h1>
+            <p>Mengenal bagian-bagian rumah, perabotan, dan preposisi tempat untuk mendeskripsikan lingkungan tempat tinggal dalam bahasa Arab.</p>
+        </div>
+
+        <div class="section-block">
+            <h2>A. Bagian-Bagian Rumah (أَجْزَاءُ الْمَنْزِلِ)</h2>
+            <p>Rumah (<span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">الْمَنْزِلُ</span>) adalah tempat paling nyaman bagi setiap keluarga. Dalam bahasa Arab, setiap ruangan memiliki nama khusus yang perlu kita kuasai. Berikut adalah kosakata inti bagian-bagian rumah:</p>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْمَنْزِلُ</div>
+                    <div class="vocab-transliteration">Al-Manzilu</div>
+                    <div class="vocab-meaning">Rumah</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْغُرْفَةُ</div>
+                    <div class="vocab-transliteration">Al-Ghurfatu</div>
+                    <div class="vocab-meaning">Kamar</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْمَطْبَخُ</div>
+                    <div class="vocab-transliteration">Al-Matbakh</div>
+                    <div class="vocab-meaning">Dapur</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">غُرْفَةُ الْجُلُوسِ</div>
+                    <div class="vocab-transliteration">Ghurfatul Julusi</div>
+                    <div class="vocab-meaning">Ruang Tamu</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْحَمَّامُ</div>
+                    <div class="vocab-transliteration">Al-Hammamu</div>
+                    <div class="vocab-meaning">Kamar Mandi</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْحَدِيْقَةُ</div>
+                    <div class="vocab-transliteration">Al-Hadiiqah</div>
+                    <div class="vocab-meaning">Taman</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْبَابُ</div>
+                    <div class="vocab-transliteration">Al-Baab</div>
+                    <div class="vocab-meaning">Pintu</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">النَّافِذَةُ</div>
+                    <div class="vocab-transliteration">An-Naafidzah</div>
+                    <div class="vocab-meaning">Jendela</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">السُّلَّمُ</div>
+                    <div class="vocab-transliteration">As-Sullam</div>
+                    <div class="vocab-meaning">Tangga</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">السَّطْحُ</div>
+                    <div class="vocab-transliteration">As-Sathh</div>
+                    <div class="vocab-meaning">Atap / Rooftop</div>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_BAGIAN_RUMAH" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Kosakata Bagian Rumah</a>
+        </div>
+
+        <div class="section-block">
+            <h2>B. Perabotan Rumah (الْأَثَاثُ)</h2>
+            <p>Setiap ruangan di rumah dilengkapi dengan perabotan (<span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">الْأَثَاثُ</span>) yang memiliki fungsinya masing-masing. Berikut adalah daftar perabotan yang umum ada di rumah:</p>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">السَّرِيْرُ</div>
+                    <div class="vocab-transliteration">As-Sariir</div>
+                    <div class="vocab-meaning">Kasur / Tempat Tidur</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْخِزَانَةُ</div>
+                    <div class="vocab-transliteration">Al-Khizaanah</div>
+                    <div class="vocab-meaning">Lemari</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْمِصْبَاحُ</div>
+                    <div class="vocab-transliteration">Al-Mishbaah</div>
+                    <div class="vocab-meaning">Lampu</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْمِرْآةُ</div>
+                    <div class="vocab-transliteration">Al-Mir'ah</div>
+                    <div class="vocab-meaning">Cermin</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">السَّجَّادَةُ</div>
+                    <div class="vocab-transliteration">As-Sajjaadah</div>
+                    <div class="vocab-meaning">Karpet</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الثَّلَّاجَةُ</div>
+                    <div class="vocab-transliteration">Ats-Tsallaajah</div>
+                    <div class="vocab-meaning">Kulkas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>C. Tata Bahasa: Preposisi Tempat (ظُرُوفُ الْمَكَانِ)</h2>
+            <p>Untuk mendeskripsikan letak suatu benda atau ruangan dalam rumah, kita perlu menguasai <em>Zhuruful Makan</em> (Keterangan Tempat). Berikut adalah preposisi tempat yang paling sering digunakan:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Bahasa Arab</th>
+                        <th>Transliterasi</th>
+                        <th>Arti</th>
+                        <th>Contoh Penggunaan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">فِي</td>
+                        <td>Fii</td>
+                        <td>Di dalam</td>
+                        <td>الْكِتَابُ فِي الْحَقِيْبَةِ (Buku ada di dalam tas)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">عَلَى</td>
+                        <td>'Alaa</td>
+                        <td>Di atas</td>
+                        <td>الْمِصْبَاحُ عَلَى الْمَكْتَبِ (Lampu ada di atas meja)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">أَمَامَ</td>
+                        <td>Amama</td>
+                        <td>Di depan</td>
+                        <td>الْحَدِيْقَةُ أَمَامَ الْمَنْزِلِ (Taman ada di depan rumah)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">خَلْفَ</td>
+                        <td>Khalfa</td>
+                        <td>Di belakang</td>
+                        <td>الْمَطْبَخُ خَلْفَ الْغُرْفَةِ (Dapur ada di belakang kamar)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">بِجَانِبِ</td>
+                        <td>Bijaanibi</td>
+                        <td>Di samping</td>
+                        <td>الْحَمَّامُ بِجَانِبِ الْغُرْفَةِ (Kamar mandi di samping kamar)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">بَيْنَ</td>
+                        <td>Baina</td>
+                        <td>Di antara</td>
+                        <td>السَّرِيْرُ بَيْنَ الْخِزَانَةِ وَالنَّافِذَةِ (Kasur di antara lemari dan jendela)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">تَحْتَ</td>
+                        <td>Tahta</td>
+                        <td>Di bawah</td>
+                        <td>الْحِذَاءُ تَحْتَ السَّرِيْرِ (Sepatu ada di bawah kasur)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">فَوْقَ</td>
+                        <td>Fauqa</td>
+                        <td>Di atas (permukaan)</td>
+                        <td>الْقِطَّةُ فَوْقَ السَّطْحِ (Kucing ada di atas atap)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Catatan Penting:</h4>
+                <p>Semua preposisi tempat di atas termasuk <strong>Huruf Jar</strong> atau <strong>Zharf</strong>, sehingga kata benda setelahnya harus berbaris <em>kasrah</em> (jar/majrur). Contoh: فِي الْغُرْفَةِ (di dalam kamar), bukan فِي الْغُرْفَةُ.</p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_PREPOSISI" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Latihan Preposisi Tempat</a>
+        </div>
+
+        <div class="section-block">
+            <h2>D. Membentuk Kalimat Deskriptif</h2>
+            <p>Dengan menggabungkan <em>Isim Isyarah</em>, <em>Zhuruful Makan</em>, dan <em>Jumlah Ismiyyah</em> yang telah dipelajari di Pertemuan 1, siswa kini mampu membuat kalimat deskriptif yang lebih kompleks tentang rumah.</p>
+
+            <h3>Contoh Kalimat:</h3>
+            <div class="arabic-text">
+                هَذَا مَنْزِلِي. الْغُرْفَةُ فِي الطَّبَقَةِ الثَّانِيَةِ. الْمَطْبَخُ بِجَانِبِ غُرْفَةِ الْجُلُوسِ. الْحَدِيْقَةُ أَمَامَ الْمَنْزِلِ. إِنَّ مَنْزِلِي نَظِيْفٌ وَجَمِيْلٌ.
+            </div>
+            <p style="color: var(--text-secondary); font-style: italic;">
+                <strong>Terjemahan:</strong> "Ini rumahku. Kamar berada di lantai dua. Dapur berada di samping ruang tamu. Taman berada di depan rumah. Sesungguhnya rumahku bersih dan indah."
+            </p>
+
+            <div class="highlight-box">
+                <h4>🎯 Analisis Struktur:</h4>
+                <ul>
+                    <li><strong>هَذَا مَنْزِلِي</strong> → Isim Isyarah + Mudhaf Ilaih (ini rumahku)</li>
+                    <li><strong>الْغُرْفَةُ فِي الطَّبَقَةِ</strong> → Mubtada' + Zhurf + Majrur (kamar di lantai)</li>
+                    <li><strong>الْمَطْبَخُ بِجَانِبِ الْغُرْفَةِ</strong> → Mubtada' + Zhraf + Mudhaf Ilaih</li>
+                    <li><strong>إِنَّ مَنْزِلِي نَظِيْفٌ</strong> → Inn + Isim + Khabar (sesungguhnya rumahku bersih)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>E. Studi Kasus & Perbandingan Metode Belajar</h2>
+            <p>Untuk memastikan penguasaan materi yang optimal, pendekatan kontekstual sangat efektif. Berikut perbandingan metode dalam mempelajari kosakata rumah:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Metode Konvensional</th>
+                        <th>Metode Kontekstual (Buku Ini)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengenalan Kosakata</strong></td>
+                        <td>Menghafal daftar kata dari buku teks.</td>
+                        <td>Siswa membuat denah rumah sendiri dan melabeli setiap ruangan dalam bahasa Arab.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latihan Preposisi</strong></td>
+                        <td>Mengerjakan soal pilihan ganda di kertas.</td>
+                        <td>Role-play: Siswa mendeskripsikan posisi benda di kelas secara lisan menggunakan preposisi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Output Siswa</strong></td>
+                        <td>Mampu menerjemahkan kalimat.</td>
+                        <td>Mampu membuat tur virtual rumah dalam bahasa Arab (proyek video pendek).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>🏡 Studi Kasus: "Tur Rumah Impian"</h4>
+                <p>Setiap siswa diminta menggambar denah rumah impian mereka, lalu mempresentasikannya di depan kelas dengan kalimat bahasa Arab. Contoh presentasi:</p>
+                <div class="arabic-text" style="margin: 1rem 0; font-size: 1.2rem;">
+                    هَذَا مَنْزِلِي. فِيْهِ ثَلَاثُ غُرَفٍ. الْمَطْبَخُ كَبِيْرٌ. الْحَدِيْقَةُ جَمِيْلَةٌ.
+                </div>
+                <p>Proyek ini melatih empat keterampilan sekaligus: <strong>menulis</strong> (denah + label), <strong>membaca</strong> (label teman), <strong>menyimak</strong> (presentasi teman), dan <strong>berbicara</strong> (presentasi sendiri).</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>F. Adab dan Nilai Islami dalam Rumah</h2>
+            <p>Rumah dalam Islam bukan sekadar tempat tinggal, melainkan benteng keluarga dari pengaruh negatif. Ada beberapa adab penting yang diajarkan Rasulullah ﷺ:</p>
+
+            <ul>
+                <li><strong>Mengucapkan Salam saat Masuk Rumah:</strong>
+                    <div class="arabic-text" style="font-size: 1.2rem;">بِسْمِ اللهِ، وَسَلَّمَ عَلَى رَسُولِ اللهِ، اَللّٰهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلِجِ وَخَيْرَ الْمَخْرَجِ</div>
+                    <em>"Dengan nama Allah, salam atas Rasulullah. Ya Allah, aku memohon kebaikan saat masuk dan kebaikan saat keluar."</em>
+                </li>
+                <li><strong>Meminta Izin sebelum Masuk Kamar Orang Tua:</strong> Berdasarkan QS. An-Nur [24]: 58, anak harus mengetuk pintu dan memberi salam sebelum masuk kamar orang tua pada tiga waktu tertentu.</li>
+                <li><strong>Menjaga Kebersihan Rumah:</strong> <em>"Kebersihan sebagian dari iman"</em> — hadis yang mendorong siswa menjaga kebersihan kamar dan rumah.</li>
+                <li><strong>Menghormati Tamu:</strong> Tamu adalah kehormatan. Siswa belajar kosakata <strong>الضَّيْفُ</strong> (tamu) dan adab menyambutnya.</li>
+            </ul>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_ADAB_RUMAH" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Adab Masuk & Keluar Rumah</a>
+        </div>
+
+        <div class="section-block">
+            <h2>G. Tantangan dan Tips Belajar untuk Siswa</h2>
+            <ul>
+                <li><strong>Tantangan:</strong> Banyaknya kosakata perabotan yang mirip (misal: <em>الْغُرْفَةُ</em> vs <em>الْمَنْزِلُ</em>).</li>
+                <li><strong>Solusi:</strong> Tempelkan label bahasa Arab pada benda-benda nyata di rumah selama satu minggu.</li>
+                <li><strong>Tantangan:</strong> Kesulitan menggunakan preposisi tempat dengan tepat.</li>
+                <li><strong>Solusi:</strong> Latihan dengan gestur tubuh — tunjuk benda dan ucapkan preposisi sambil memperagakan posisi.</li>
+                <li><strong>Tantangan:</strong> Lupa baris kasrah setelah preposisi.</li>
+                <li><strong>Solusi:</strong> Ingat rumus: <em>"Setelah preposisi, kata benda selalu kasrah!"</em> — jadikan ini mantra harian.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2>◆ Kata Kunci Bab Ini</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْمَنْزِلُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْغُرْفَةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْمَطْبَخُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">فِي / عَلَى</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">أَمَامَ / خَلْفَ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">ظُرُوفُ الْمَكَانِ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْأَثَاثُ</span>
+            </div>
+        </div>
+
+        <div class="section-block" style="text-align: center; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📝 Uji Pemahaman Anda</h3>
+            <p style="margin-bottom: 1.5rem;">Setelah mempelajari Pertemuan 2, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan 5 esai seputar kosakata rumah, preposisi tempat, dan adab Islami.</p>
+            <a href="uji-formatif-2.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                📝 Ikuti Uji Formatif Pertemuan 2 →
+            </a>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="1.html" class="btn btn-outline">← Pertemuan 1: Al-Madrasah</a>
+            <a href="index.html" class="btn btn-secondary">📚 Daftar Pertemuan</a>
+            <a href="3.html" class="btn btn-primary">Pertemuan 3: Al-Hiwayah →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>Buku daras untuk siswa MTs. Teori, praktik, dan aplikasi bahasa Arab komunikatif bernuansa Islami.</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="1.html">Pertemuan 1</a>
+                <a href="index.html#daftar-pertemuan">Daftar Pertemuan</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(212, 175, 55, 0.05); border-radius: 8px; display: inline-block;">
+                <p style="color: var(--gold-light); margin-bottom: 0.5rem;"><strong>Informasi Buku:</strong></p>
+                <p>Cetak — Rp 149.000 | E-Book — Rp 89.000</p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <p>Kontak Penulis:</p>
+                <a href="mailto:armi1919wahid@gmail.com" style="color: var(--gold-primary); text-decoration: none;">armi1919wahid@gmail.com</a>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">MTsS Diniyah Limo Jurai</p>
+            </div>
+
+            <p class="copyright">© 2026 ARMI WAHID., S.PdI. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

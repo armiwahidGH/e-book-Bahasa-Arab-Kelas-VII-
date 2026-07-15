@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 6 - Al-A'yad (Hari-Hari Besar Islam) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-header p { color: var(--text-secondary); font-size: 1.1rem; font-style: italic; }
+
+        .section-block { margin-bottom: 3rem; }
+        .section-block h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .section-block h3 { font-size: 1.3rem; color: var(--gold-light); margin: 1.5rem 0 1rem 0; }
+        .section-block p, .section-block li { color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; }
+        .section-block ul, .section-block ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .section-block li { margin-bottom: 0.5rem; }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin: 1rem 0;
+            line-height: 2;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .vocab-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .vocab-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .vocab-arabic {
+            direction: rtl;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-transliteration {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .vocab-meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Expression Box */
+        .expression-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .expression-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            align-items: center;
+        }
+
+        .expression-item:last-child { border-bottom: none; }
+
+        .expression-arabic {
+            direction: rtl;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .expression-translit {
+            font-size: 0.9rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .expression-meaning {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .comparison-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(212, 175, 55, 0.05); color: var(--text-primary); }
+
+        /* Highlight Box & Video Button */
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1.2rem; }
+
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .btn-video:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Navigation Buttons */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .chapter-header h1 { font-size: 1.8rem; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .expression-item { grid-template-columns: 1fr; gap: 0.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+                <a href="index.html#penulis">✍️ Penulis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="chapter-header">
+            <h1>Pertemuan 6<br>Al-A'yad (الْأَيَّامُ الْكُبْرَى الْإِسْلَامِيَّةُ)</h1>
+            <p>Mempelajari kosakata hari-hari besar Islam, ungkapan selamat, dan nilai-nilai sejarah melalui bahasa Arab komunikatif.</p>
+        </div>
+
+        <div class="section-block">
+            <h2>A. Kosakata Hari-Hari Besar Islam (الْأَعْيَادُ وَالْمُنَاسَبَاتُ)</h2>
+            <p>Umat Islam memiliki beberapa hari besar (<span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">الْمُنَاسَبَاتُ</span>) yang penuh dengan makna sejarah dan spiritual. Menguasai nama-nama hari besar dalam bahasa Arab membantu siswa memahami identitas keislaman secara global.</p>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">عِيْدُ الْفِطْرِ</div>
+                    <div class="vocab-transliteration">'Iidul Fithri</div>
+                    <div class="vocab-meaning">Hari Raya Idul Fitri</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">عِيْدُ الْأَضْحَى</div>
+                    <div class="vocab-transliteration">'Iidul Adhha</div>
+                    <div class="vocab-meaning">Hari Raya Idul Adha</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْمَوْلِدُ النَّبَوِيُّ</div>
+                    <div class="vocab-transliteration">Al-Maulid An-Nabawi</div>
+                    <div class="vocab-meaning">Maulid Nabi Muhammad ﷺ</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">رَأْسُ السَّنَةِ الْهِجْرِيَّةِ</div>
+                    <div class="vocab-transliteration">Ra'sus Sanatil Hijriyyah</div>
+                    <div class="vocab-meaning">Tahun Baru Hijriah</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْإِسْرَاءُ وَالْمِعْرَاجُ</div>
+                    <div class="vocab-transliteration">Al-Israa' wal Mi'raaj</div>
+                    <div class="vocab-meaning">Isra Mi'raj</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">شَهْرُ رَمَضَانَ</div>
+                    <div class="vocab-transliteration">Syahru Ramadhaan</div>
+                    <div class="vocab-meaning">Bulan Ramadhan</div>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_HARI_BESAR" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Kosakata Hari-Hari Besar Islam</a>
+        </div>
+
+        <div class="section-block">
+            <h2>B. Ungkapan Selamat dan Doa (تَعْبِيْرَاتُ التَّهَانِي)</h2>
+            <p>Dalam budaya Arab-Islam, saling mengucapkan selamat dan mendoakan kebaikan adalah sunnah yang mulia. Berikut adalah ungkapan-ungkapan yang sering digunakan saat hari raya:</p>
+
+            <div class="expression-box">
+                <div class="expression-item">
+                    <div class="expression-arabic">كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ</div>
+                    <div class="expression-translit">Kullu 'aamin wa antum bi khair</div>
+                    <div class="expression-meaning">Semoga kamu selalu dalam kebaikan setiap tahun</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ</div>
+                    <div class="expression-translit">Taqabbalallaahu minnaa wa minkum</div>
+                    <div class="expression-meaning">Semoga Allah menerima (amal) kami dan kamu</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">عِيْدٌ مُبَارَكٌ</div>
+                    <div class="expression-translit">'Iidun mubaarak</div>
+                    <div class="expression-meaning">Hari raya yang diberkahi</div>
+                </div>
+                <div class="expression-item">
+                    <div class="expression-arabic">جَعَلَنَا اللهُ وَإِيَّاكُمْ مِنَ الْعَائِدِيْنَ</div>
+                    <div class="expression-translit">Ja'alanaallaahu wa iyyaakum minal 'aa'idiin</div>
+                    <div class="expression-meaning">Semoga Allah menjadikan kami dan kamu termasuk orang-orang yang kembali (fitri)</div>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_UCAPAN" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Cara Mengucapkan Selamat Hari Raya</a>
+        </div>
+
+        <div class="section-block">
+            <h2>C. Tata Bahasa: Fi'il Madhi (الْفِعْلُ الْمَاضِي)</h2>
+            <p>Untuk menceritakan peristiwa sejarah hari besar atau aktivitas yang sudah dilakukan (misal: "Saya shalat Id kemarin"), kita menggunakan <em>Fi'il Madhi</em> (Kata Kerja Lampau). Berikut adalah pola dasar yang perlu dikuasai siswa kelas VII:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Kata Ganti</th>
+                        <th>ذَهَبَ (Pergi)</th>
+                        <th>صَلَّى (Shalat)</th>
+                        <th>زَارَ (Mengunjungi)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>أَنَا</strong> (Saya)</td>
+                        <td>ذَهَبْتُ (Saya pergi)</td>
+                        <td>صَلَّيْتُ (Saya shalat)</td>
+                        <td>زُرْتُ (Saya mengunjungi)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>أَنْتَ</strong> (Kamu Lk)</td>
+                        <td>ذَهَبْتَ</td>
+                        <td>صَلَّيْتَ</td>
+                        <td>زُرْتَ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>أَنْتِ</strong> (Kamu Pr)</td>
+                        <td>ذَهَبْتِ</td>
+                        <td>صَلَّيْتِ</td>
+                        <td>زُرْتِ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>هُوَ</strong> (Dia Lk)</td>
+                        <td>ذَهَبَ</td>
+                        <td>صَلَّى</td>
+                        <td>زَارَ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>هِيَ</strong> (Dia Pr)</td>
+                        <td>ذَهَبَتْ</td>
+                        <td>صَلَّتْ</td>
+                        <td>زَارَتْ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Contoh Penerapan:</h4>
+                <div class="arabic-text">
+                    ذَهَبْتُ إِلَى الْمَسْجِدِ لِلصَّلَاةِ يَوْمَ الْعِيْدِ. زَارَ أَحْمَدُ جَدَّهُ بَعْدَ الصَّلَاةِ.
+                </div>
+                <p style="color: var(--text-secondary); font-style: italic;">
+                    <strong>Terjemahan:</strong> "Saya pergi ke masjid untuk shalat pada hari raya. Ahmad mengunjungi kakeknya setelah shalat."
+                </p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>D. Dialog Komunikatif: Saling Mengucapkan Selamat</h2>
+            <p>Berikut adalah contoh dialog nyata antara dua siswa yang saling mengucapkan selamat hari raya. Dialog ini dapat dipraktikkan secara berpasangan:</p>
+
+            <div class="highlight-box">
+                <h4>🎭 Dialog: At-Tahani bil 'Iid (Ucapan Selamat Hari Raya)</h4>
+                <div style="direction: rtl; text-align: right; font-family: 'Traditional Arabic', serif; font-size: 1.2rem; color: var(--gold-primary); line-height: 2.2;">
+                    سَارَة: السَّلَامُ عَلَيْكِ يَا فَاطِمَةُ! عِيْدٌ مُبَارَكٌ.<br>
+                    فَاطِمَةُ: وَعَلَيْكِ السَّلَامُ يَا سَارَةُ! كُلُّ عَامٍ وَأَنْتِ بِخَيْرٍ.<br>
+                    سَارَة: وَأَنْتِ بِخَيْرٍ. هَلْ ذَهَبْتِ إِلَى الْمَسْجِدِ لِلصَّلَاةِ؟<br>
+                    فَاطِمَةُ: نَعَمْ، ذَهَبْتُ مَعَ أُسْرَتِي. ثُمَّ زُرْنَا الْجِدَّ وَالْجَدَّةَ.<br>
+                    سَارَة: مَا شَاءَ اللهُ! تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ.<br>
+                    فَاطِمَةُ: آمِيْنَ. وَجَزَاكِ اللهُ خَيْرًا.
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic; direction: ltr; text-align: left;">
+                    <strong>Terjemahan:</strong> Sarah: "Assalamu'alaikum Fatimah. Hari raya yang diberkahi." | Fatimah: "Wa'alaikumussalam Sarah. Semoga kamu selalu dalam kebaikan setiap tahun." | Sarah: "Dan kamu juga dalam kebaikan. Apakah kamu pergi ke masjid untuk shalat?" | Fatimah: "Ya, saya pergi bersama keluarga. Kemudian kami mengunjungi kakek dan nenek." | Sarah: "Masya Allah! Semoga Allah menerima amal kami dan kamu." | Fatimah: "Aamiin. Semoga Allah membalasmu dengan kebaikan."
+                </p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_DIALOG_ID" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Praktik Dialog Hari Raya</a>
+        </div>
+
+        <div class="section-block">
+            <h2>E. Studi Kasus & Perbandingan Metode Belajar</h2>
+            <p>Untuk memastikan siswa dapat mengapresiasi hari besar Islam sambil belajar bahasa Arab, pendekatan kontekstual sangat efektif. Berikut perbandingan metode:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Metode Konvensional</th>
+                        <th>Metode Komunikatif (Buku Ini)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengenalan Kosakata</strong></td>
+                        <td>Menghafal daftar nama hari besar dari buku.</td>
+                        <td>Siswa membuat "Kalender Hijriah Mini" dengan ilustrasi dan label bahasa Arab untuk setiap peristiwa.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latihan Tata Bahasa</strong></td>
+                        <td>Mengerjakan soal perubahan fi'il madhi di kertas.</td>
+                        <td>Wawancara teman: "Apa yang kamu lakukan kemarin saat hari raya?" menggunakan fi'il madhi.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Output Siswa</strong></td>
+                        <td>Mampu menerjemahkan teks tentang hari raya.</td>
+                        <td>Mampu membuat kartu ucapan (E-card) hari raya dengan tulisan Arab yang indah dan ucapan yang tepat.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>🎯 Studi Kasus: "Proyek Kartu Ucapan Digital"</h4>
+                <p>Siswa diminta mendesain kartu ucapan Idul Fitri atau Idul Adha sederhana menggunakan aplikasi Canva atau kertas. Di dalam kartu, mereka harus menuliskan:</p>
+                <div class="arabic-text" style="margin: 1rem 0; font-size: 1.2rem;">
+                    عِيْدٌ مُبَارَكٌ<br>
+                    تَقَبَّلَ اللهُ مِنَّا وَمِنْكُمْ<br>
+                    مِنْ: [Nama Siswa]
+                </div>
+                <p>Proyek ini melatih <strong>kreativitas</strong>, <strong>menulis</strong> (kitabah), dan <strong>apresiasi budaya</strong> secara simultan.</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>F. Nilai-Nilai Islami dalam Perayaan Hari Besar</h2>
+            <p>Hari besar dalam Islam bukan sekadar perayaan seremonial, melainkan momentum untuk memperdalam nilai-nilai spiritual dan sosial:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Hari Besar</th>
+                        <th>Nilai Utama</th>
+                        <th>Implementasi dalam Kehidupan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Idul Fitri</strong></td>
+                        <td>Kembali suci, kemenangan, persaudaraan</td>
+                        <td>Halal bihalal, membayar zakat fitrah, saling memaafkan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Idul Adha</strong></td>
+                        <td>Pengorbanan, kepatuhan, kepedulian sosial</td>
+                        <td>Penyembelihan hewan qurban, distribusi daging kepada yang membutuhkan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maulid Nabi</strong></td>
+                        <td>Cinta kepada Rasulullah ﷺ, teladan akhlak</td>
+                        <td>Membaca shalawat, meneladani sifat siddiq, amanah, tabligh, fathanah</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tahun Baru Hijriah</strong></td>
+                        <td>Muhasabah (introspeksi), semangat hijrah</td>
+                        <td>Mengevaluasi diri, membuat resolusi perbaikan diri di tahun baru</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Hadis tentang Silaturahmi:</h4>
+                <p>Rasulullah ﷺ bersabda: <em>"Barangsiapa yang ingin dilapangkan rezekinya dan dipanjangkan umurnya, maka hendaklah ia menyambung silaturahmi."</em> (HR. Bukhari). Hari raya adalah waktu terbaik untuk mengamalkan hadis ini.</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>G. Tantangan dan Tips Belajar untuk Siswa</h2>
+            <ul>
+                <li><strong>Tantangan:</strong> Menghafal harakat (baris) pada fi'il madhi.</li>
+                <li><strong>Solusi:</strong> Gunakan lagu atau irama saat menghafal tasrif. Otak lebih mudah mengingat informasi yang berirama.</li>
+                <li><strong>Tantangan:</strong> Bingung membedakan ucapan selamat untuk berbagai momen.</li>
+                <li><strong>Solusi:</strong> Buat "Kartu Saku Ucapan" yang berisi 3-4 ungkapan utama (seperti <em>Kullu 'aamin wa antum bi khair</em>) yang bisa digunakan untuk hampir semua hari besar.</li>
+                <li><strong>Tantangan:</strong> Kurangnya lingkungan praktik berbahasa Arab saat hari raya.</li>
+                <li><strong>Solusi:</strong> Mulai biasakan mengucapkan "Taqabbalallahu minna wa minkum" kepada keluarga di rumah saat hari raya tiba.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2>◆ Kata Kunci Bab Ini</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">عِيْدُ الْفِطْرِ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">عِيْدُ الْأَضْحَى</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">كُلُّ عَامٍ وَأَنْتُمْ بِخَيْرٍ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">تَقَبَّلَ اللهُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْفِعْلُ الْمَاضِي</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">ذَهَبَ / زَارَ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">السِّلَةُ</span>
+            </div>
+        </div>
+
+        <div class="section-block" style="text-align: center; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📝 Uji Pemahaman Anda</h3>
+            <p style="margin-bottom: 1.5rem;">Setelah mempelajari Pertemuan 6, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan 5 esai seputar kosakata hari besar, ungkapan selamat, dan fi'il madhi.</p>
+            <a href="uji-formatif-6.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                📝 Ikuti Uji Formatif Pertemuan 6 →
+            </a>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="5.html" class="btn btn-outline">← Pertemuan 5: Ash-Shihhah</a>
+            <a href="index.html" class="btn btn-secondary">📚 Daftar Pertemuan</a>
+            <a href="7.html" class="btn btn-primary">Pertemuan 7: As-Siyahah →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>Buku daras untuk siswa MTs. Teori, praktik, dan aplikasi bahasa Arab komunikatif bernuansa Islami.</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="1.html">Pertemuan 1</a>
+                <a href="5.html">Pertemuan 5</a>
+                <a href="index.html#daftar-pertemuan">Daftar Pertemuan</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(212, 175, 55, 0.05); border-radius: 8px; display: inline-block;">
+                <p style="color: var(--gold-light); margin-bottom: 0.5rem;"><strong>Informasi Buku:</strong></p>
+                <p>Cetak — Rp 149.000 | E-Book — Rp 89.000</p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <p>Kontak Penulis:</p>
+                <a href="mailto:armi1919wahid@gmail.com" style="color: var(--gold-primary); text-decoration: none;">armi1919wahid@gmail.com</a>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">MTsS Diniyah Limo Jurai</p>
+            </div>
+
+            <p class="copyright">© 2026 ARMI WAHID., S.PdI. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

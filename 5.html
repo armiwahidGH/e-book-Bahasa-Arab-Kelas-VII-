@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 5 - Ash-Shihhah (Kesehatan) | Bahasa Arab Kelas VII</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --bg-dark: #0A0A0A;
+            --bg-card: #141414;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--gold-primary); }
+
+        /* Navigation */
+        .top-nav {
+            background: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold-primary); }
+
+        /* Main Content */
+        .content-wrapper { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chapter-header p { color: var(--text-secondary); font-size: 1.1rem; font-style: italic; }
+
+        .section-block { margin-bottom: 3rem; }
+        .section-block h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--gold-primary);
+        }
+        .section-block h3 { font-size: 1.3rem; color: var(--gold-light); margin: 1.5rem 0 1rem 0; }
+        .section-block p, .section-block li { color: var(--text-secondary); margin-bottom: 1rem; text-align: justify; }
+        .section-block ul, .section-block ol { margin-left: 1.5rem; margin-bottom: 1.5rem; }
+        .section-block li { margin-bottom: 0.5rem; }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            margin: 1rem 0;
+            line-height: 2;
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            background: rgba(212, 175, 55, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Vocabulary Grid */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .vocab-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .vocab-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .vocab-arabic {
+            direction: rtl;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .vocab-transliteration {
+            font-size: 0.85rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 0.3rem;
+        }
+
+        .vocab-meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Symptom Grid */
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .symptom-card {
+            background: linear-gradient(135deg, rgba(244, 67, 54, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid rgba(244, 67, 54, 0.2);
+            border-radius: 10px;
+            padding: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .symptom-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        .symptom-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .symptom-arabic {
+            direction: rtl;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            font-family: 'Traditional Arabic', 'Arial', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+
+        .symptom-meaning {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Table Styling */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .comparison-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 1rem;
+            text-align: left;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: rgba(212, 175, 55, 0.05); color: var(--text-primary); }
+
+        /* Highlight Box & Video Button */
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .highlight-box h4 { color: var(--gold-light); margin-bottom: 1rem; font-size: 1.2rem; }
+
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .btn-video:hover { background: #cc0000; transform: scale(1.05); }
+
+        /* Navigation Buttons */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            color: var(--bg-dark);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary); }
+        .btn-secondary:hover { background: rgba(212, 175, 55, 0.1); }
+        .btn-outline { background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: var(--text-secondary); }
+        .btn-outline:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer-content { max-width: 900px; margin: 0 auto; }
+        .footer-content h3 { color: var(--gold-primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .footer-content p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .footer-links { margin: 1.5rem 0; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--gold-primary); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright { margin-top: 2rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); }
+
+        @media (max-width: 768px) {
+            .chapter-header h1 { font-size: 1.8rem; }
+            .chapter-nav { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-weight: 700;">
+                Bahasa Arab Kelas VII
+            </div>
+            <div class="nav-links">
+                <a href="index.html">🏠 Beranda</a>
+                <a href="index.html#daftar-pertemuan">📚 Daftar Pertemuan</a>
+                <a href="index.html#penulis">✍️ Penulis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+        <div class="chapter-header">
+            <h1>Pertemuan 5<br>Ash-Shihhah (الصِّحَّةُ)</h1>
+            <p>Mengenal anggota tubuh, keluhan kesehatan, dan adab berobat dalam Islam melalui bahasa Arab komunikatif.</p>
+        </div>
+
+        <div class="section-block">
+            <h2>A. Anggota Tubuh (أَعْضَاءُ الْجِسْمِ)</h2>
+            <p>Tubuh manusia (<span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">الْجِسْمُ</span>) adalah amanah dari Allah yang harus kita jaga. Mempelajari nama-nama anggota tubuh dalam bahasa Arab adalah langkah penting untuk dapat berkomunikasi tentang kesehatan. Berikut adalah kosakata inti:</p>
+
+            <h3>Bagian Kepala dan Wajah:</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الرَّأْسُ</div>
+                    <div class="vocab-transliteration">Ar-Ra'su</div>
+                    <div class="vocab-meaning">Kepala</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْعَيْنُ</div>
+                    <div class="vocab-transliteration">Al-'Ainu</div>
+                    <div class="vocab-meaning">Mata</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْأُذُنُ</div>
+                    <div class="vocab-transliteration">Al-Udzunu</div>
+                    <div class="vocab-meaning">Telinga</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْأَنْفُ</div>
+                    <div class="vocab-transliteration">Al-Anfu</div>
+                    <div class="vocab-meaning">Hidung</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْفَمُ</div>
+                    <div class="vocab-transliteration">Al-Famu</div>
+                    <div class="vocab-meaning">Mulut</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْأَسْنَانُ</div>
+                    <div class="vocab-transliteration">Al-Asnanu</div>
+                    <div class="vocab-meaning">Gigi</div>
+                </div>
+            </div>
+
+            <h3>Bagian Tubuh Lainnya:</h3>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْيَدُ</div>
+                    <div class="vocab-transliteration">Al-Yadu</div>
+                    <div class="vocab-meaning">Tangan</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الرِّجْلُ</div>
+                    <div class="vocab-transliteration">Ar-Rijlu</div>
+                    <div class="vocab-meaning">Kaki</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْبَطْنُ</div>
+                    <div class="vocab-transliteration">Al-Bathnu</div>
+                    <div class="vocab-meaning">Perut</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الصَّدْرُ</div>
+                    <div class="vocab-transliteration">As-Shadru</div>
+                    <div class="vocab-meaning">Dada</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الظَّهْرُ</div>
+                    <div class="vocab-transliteration">Azh-Zhahru</div>
+                    <div class="vocab-meaning">Punggung</div>
+                </div>
+                <div class="vocab-card">
+                    <div class="vocab-arabic">الْقَلْبُ</div>
+                    <div class="vocab-transliteration">Al-Qalbu</div>
+                    <div class="vocab-meaning">Jantung/Hati</div>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_ANGGOTA_TUBUH" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Kosakata Anggota Tubuh</a>
+        </div>
+
+        <div class="section-block">
+            <h2>B. Keluhan Kesehatan (الشَّكَوَى مِنَ الْمَرَضِ)</h2>
+            <p>Ketika seseorang merasa tidak sehat, mereka perlu menyampaikan keluhannya. Berikut adalah kosakata dan ungkapan untuk menyatakan keluhan kesehatan:</p>
+
+            <div class="symptom-grid">
+                <div class="symptom-card">
+                    <div class="symptom-icon">🤕</div>
+                    <div class="symptom-arabic">صُدَاعٌ</div>
+                    <div class="symptom-meaning">Sakit kepala</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🤒</div>
+                    <div class="symptom-arabic">حُمَّى</div>
+                    <div class="symptom-meaning">Demam</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🤢</div>
+                    <div class="symptom-arabic">غَثَيَانٌ</div>
+                    <div class="symptom-meaning">Mual</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😷</div>
+                    <div class="symptom-arabic">سُعَالٌ</div>
+                    <div class="symptom-meaning">Batuk</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🤧</div>
+                    <div class="symptom-arabic">زُكَامٌ</div>
+                    <div class="symptom-meaning">Pilek/Flu</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😣</div>
+                    <div class="symptom-arabic">أَلَمُ الْبَطْنِ</div>
+                    <div class="symptom-meaning">Sakit perut</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">😫</div>
+                    <div class="symptom-arabic">إِعْيَاءٌ</div>
+                    <div class="symptom-meaning">Kelelahan</div>
+                </div>
+                <div class="symptom-card">
+                    <div class="symptom-icon">🦷</div>
+                    <div class="symptom-arabic">وَجَعُ الْأَسْنَانِ</div>
+                    <div class="symptom-meaning">Sakit gigi</div>
+                </div>
+            </div>
+
+            <h3>Ungkapan Keluhan:</h3>
+            <div class="arabic-text">
+                أُعَانِي مِنْ صُدَاعٍ شَدِيْدٍ<br>
+                عِنْدِي حُمَّى وَسُعَالٌ<br>
+                أَشْعُرُ بِأَلَمٍ فِي الْبَطْنِ<br>
+                لَا أَسْتَطِيْعُ النَّوْمَ جَيِّدًا
+            </div>
+            <p style="color: var(--text-secondary); font-style: italic;">
+                <strong>Terjemahan:</strong> "Saya menderita sakit kepala yang hebat." | "Saya demam dan batuk." | "Saya merasa sakit perut." | "Saya tidak bisa tidur dengan baik."
+            </p>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_KELOHAN_KESEHATAN" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Ungkapan Keluhan Kesehatan</a>
+        </div>
+
+        <div class="section-block">
+            <h2>C. Dialog Komunikatif: Ke Dokter</h2>
+            <p>Berikut adalah contoh dialog antara pasien dan dokter yang dapat dipraktikkan secara berpasangan:</p>
+
+            <div class="highlight-box">
+                <h4>🎭 Dialog: Ziyarah Ath-Thabib (Kunjungan ke Dokter)</h4>
+                <div style="direction: rtl; text-align: right; font-family: 'Traditional Arabic', serif; font-size: 1.2rem; color: var(--gold-primary); line-height: 2.2;">
+                    الطَّبِيْبُ: السَّلَامُ عَلَيْكُمْ. مَا الَّذِي يُؤْزِعُكَ؟<br>
+                    الْمَرِيْضُ: وَعَلَيْكُمُ السَّلَامُ يَا دُكْتُور. عِنْدِي صُدَاعٌ وَحُمَّى مُنْذُ يَوْمَيْنِ.<br>
+                    الطَّبِيْبُ: هَلْ عِنْدَكَ سُعَالٌ أَوْ زُكَامٌ؟<br>
+                    الْمَرِيْضُ: نَعَمْ، عِنْدِي سُعَالٌ خَفِيْفٌ.<br>
+                    الطَّبِيْبُ: سَأَكْتُبُ لَكَ وَصْفَةً طِبِّيَّةً. خُذِ الدَّوَاءَ ثَلَاثَ مَرَّاتٍ فِي الْيَوْمِ.<br>
+                    الْمَرِيْضُ: شُكْرًا يَا دُكْتُور.<br>
+                    الطَّبِيْبُ: الْعَفْوَ. اشْفَ عَاجِلًا إِنْ شَاءَ اللهُ.
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic; direction: ltr; text-align: left;">
+                    <strong>Terjemahan:</strong> Dokter: "Assalamu'alaikum. Apa yang Anda keluhkan?" | Pasien: "Wa'alaikumussalam Dok. Saya sakit kepala dan demam sejak dua hari." | Dokter: "Apakah Anda batuk atau pilek?" | Pasien: "Ya, saya batuk ringan." | Dokter: "Saya akan menulis resep untuk Anda. Minum obat tiga kali sehari." | Pasien: "Terima kasih Dok." | Dokter: "Sama-sama. Semoga cepat sembuh, insya Allah."
+                </p>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_DIALOG_DOKTER" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Dialog ke Dokter</a>
+        </div>
+
+        <div class="section-block">
+            <h2>D. Tata Bahasa: Fi'il Mudhari' untuk Keluhan</h2>
+            <p>Untuk menyatakan keluhan kesehatan, kita menggunakan Fi'il Mudhari' dengan kata kerja tertentu. Berikut adalah pola yang sering digunakan:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Kata Kerja (Fi'il)</th>
+                        <th>Arti</th>
+                        <th>Contoh Kalimat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">يُؤْلِمُ</td>
+                        <td>Sakit/nyeri</td>
+                        <td>يُؤْلِمُنِي رَأْسِي (Kepalaku sakit)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">أَشْعُرُ بِـ</td>
+                        <td>Saya merasa...</td>
+                        <td>أَشْعُرُ بِأَلَمٍ فِي الْبَطْنِ (Saya merasa sakit perut)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">عِنْدِي</td>
+                        <td>Saya punya/mengalami</td>
+                        <td>عِنْدِي حُمَّى (Saya demam)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">أُعَانِي مِنْ</td>
+                        <td>Saya menderita...</td>
+                        <td>أُعَانِي مِنْ سُعَالٍ (Saya menderita batuk)</td>
+                    </tr>
+                    <tr>
+                        <td style="font-family: 'Traditional Arabic', serif; font-size: 1.3rem; color: var(--gold-primary);">لَا أَسْتَطِيْعُ</td>
+                        <td>Saya tidak bisa...</td>
+                        <td>لَا أَسْتَطِيْعُ النَّوْمَ (Saya tidak bisa tidur)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Catatan Penting:</h4>
+                <p>Kata <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">أَلَمٌ</span> (sakit/nyeri) adalah kata benda, sedangkan <span style="color: var(--gold-primary); font-family: 'Traditional Arabic', serif; font-size: 1.2rem;">يُؤْلِمُ</span> adalah kata kerja. Penggunaan keduanya berbeda dalam kalimat.</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>E. Adab Berobat dalam Perspektif Islam</h2>
+            <p>Dalam Islam, berobat adalah bagian dari ikhtiar (usaha) yang dianjurkan. Rasulullah ﷺ bersabda: <em>"Sesungguhnya Allah telah menurunkan penyakit dan obatnya, maka berobatlah kalian"</em> (HR. Abu Dawud). Berikut adalah adab-adab yang perlu diperhatikan:</p>
+
+            <ul>
+                <li><strong>Berdo'a Sebelum dan Sesudah Berobat:</strong>
+                    <div class="arabic-text" style="font-size: 1.2rem;">
+                        أَسْأَلُ اللهَ الْعَظِيْمَ رَبَّ الْعَرْشِ الْعَظِيْمِ أَنْ يَشْفِيَكَ
+                    </div>
+                    <em>"Aku memohon kepada Allah Yang Maha Agung, Rabb Arsy yang agung, agar menyembuhkanmu."</em> (Dibaca 7 kali untuk orang sakit)
+                </li>
+                <li><strong>Berobat dengan yang Halal:</strong> Rasulullah ﷺ bersabda: <em>"Sesungguhnya Allah tidak menjadikan obat kalian dalam sesuatu yang diharamkan atas kalian"</em> (HR. Bukhari).</li>
+                <li><strong>Berobat ke Dokter yang Kompeten:</strong> Memilih dokter yang ahli dan terpercaya adalah bagian dari ikhtiar yang benar.</li>
+                <li><strong>Bersabar dan Bertawakkal:</strong> Kesabaran dalam menghadapi penyakit adalah ujian yang akan mengangkat derajat seorang muslim.</li>
+                <li><strong>Menjaga Doa dan Dzikir:</strong> Membaca Al-Qur'an (terutama Ayat Kursi, Al-Ikhlas, Al-Falaq, An-Nas) dan doa-doa ma'tsurat.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>📌 Doa Ketika Mengunjungi Orang Sakit:</h4>
+                <div class="arabic-text" style="font-size: 1.2rem;">
+                    لَا بَأْسَ طَهُوْرٌ إِنْ شَاءَ اللهُ
+                </div>
+                <em>"Tidak apa-apa, semoga (sakit ini) menjadi pembersih dosa, insya Allah."</em>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=CONTOH_LINK_VIDEO_ADAB_BEROBAT" target="_blank" class="btn-video">▶🎬 Tampilkan Video: Adab Berobat dalam Islam</a>
+        </div>
+
+        <div class="section-block">
+            <h2>F. Studi Kasus & Perbandingan Metode Belajar</h2>
+            <p>Untuk memastikan siswa dapat berkomunikasi tentang kesehatan dengan percaya diri, pendekatan kontekstual sangat efektif. Berikut perbandingan metode:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Metode Konvensional</th>
+                        <th>Metode Komunikatif (Buku Ini)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pengenalan Kosakata</strong></td>
+                        <td>Menghafal daftar anggota tubuh tanpa konteks.</td>
+                        <td>Siswa menunjuk anggota tubuh sendiri sambil mengucapkan nama Arabnya (kinesthetic learning).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latihan Dialog</strong></td>
+                        <td>Membaca dialog dari buku teks.</td>
+                        <td>Role-play: Satu siswa menjadi dokter, yang lain menjadi pasien dengan keluhan acak.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Output Siswa</strong></td>
+                        <td>Mampu menerjemahkan kalimat tentang kesehatan.</td>
+                        <td>Mampu membuat video pendek "Tips Sehat dalam Islam" dengan narasi bahasa Arab.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>🏥 Studi Kasus: "Klinik Bahasa Arab"</h4>
+                <p>Di kelas, dibuat simulasi klinik sederhana. Beberapa siswa berperan sebagai dokter, perawat, dan pasien. Pasien datang dengan keluhan yang sudah disiapkan dalam kartu (misal: sakit kepala, demam, sakit perut). Dokter harus mendiagnosis dan memberikan resep dalam bahasa Arab.</p>
+                <div class="arabic-text" style="margin: 1rem 0; font-size: 1.2rem;">
+                    الطَّبِيْبُ: مَا الَّذِي يُؤْزِعُكَ؟<br>
+                    الْمَرِيْضُ: عِنْدِي أَلَمٌ فِي الْبَطْنِ.<br>
+                    الطَّبِيْبُ: خُذْ هَذَا الدَّوَاءَ مَرَّتَيْنِ فِي الْيَوْمِ.
+                </div>
+                <p>Proyek ini melatih <strong>4 keterampilan</strong>: <em>menyimak</em> (keluhan pasien), <em>berbicara</em> (diagnosis dokter), <em>membaca</em> (resep obat), dan <em>menulis</em> (resep dalam bahasa Arab).</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>G. Tips Hidup Sehat dalam Islam</h2>
+            <p>Islam mengajarkan gaya hidup sehat yang komprehensif. Berikut adalah beberapa tips yang diajarkan Rasulullah ﷺ:</p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Ajaran Islam</th>
+                        <th>Manfaat Kesehatan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Makanan</strong></td>
+                        <td>Makan yang halal dan thayyib, tidak berlebihan (QS. Al-A'raf: 31)</td>
+                        <td>Mencegah obesitas dan penyakit metabolik</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Minuman</strong></td>
+                        <td>Minum dengan duduk, tidak bernafas dalam gelas</td>
+                        <td>Mencegah gangguan pencernaan</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tidur</strong></td>
+                        <td>Tidur awal malam, bangun akhir malam (tahajud)</td>
+                        <td>Istirahat optimal, kesehatan mental</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Olahraga</strong></td>
+                        <td>Berenang, memanah, berkuda (hadis Nabi)</td>
+                        <td>Kebugaran fisik dan mental</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kebersihan</strong></td>
+                        <td>Wudhu 5 kali sehari, siwak, kebersihan diri</td>
+                        <td>Mencegah penyakit infeksi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>📌 Hadis tentang Kesehatan:</h4>
+                <p>Rasulullah ﷺ bersabda: <em>"Mukmin yang kuat lebih baik dan lebih dicintai Allah daripada mukmin yang lemah, dan pada keduanya ada kebaikan"</em> (HR. Muslim). Hadis ini menunjukkan pentingnya menjaga kesehatan fisik sebagai bagian dari keimanan.</p>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <h2>H. Tantangan dan Tips Belajar untuk Siswa</h2>
+            <ul>
+                <li><strong>Tantangan:</strong> Banyaknya kosakata anggota tubuh yang mirip.</li>
+                <li><strong>Solusi:</strong> Gunakan poster anatomi tubuh di kelas, tempel label bahasa Arab pada gambar anggota tubuh.</li>
+                <li><strong>Tantangan:</strong> Kesulitan menghafal keluhan kesehatan.</li>
+                <li><strong>Solusi:</strong> Buat kartu keluhan (symptom cards) dan mainkan permainan "Tebak Keluhan" dengan teman.</li>
+                <li><strong>Tantangan:</strong> Takut berbicara tentang penyakit.</li>
+                <li><strong>Solusi:</strong> Mulailah dengan keluhan ringan (sakit kepala, perut) sebelum ke yang lebih kompleks.</li>
+                <li><strong>Tantangan:</strong> Lupa pola Fi'il Mudhari' untuk keluhan.</li>
+                <li><strong>Solusi:</strong> Buat kalimat sederhana setiap hari: "أُعَانِي مِنْ..." lalu isi dengan keluhan yang berbeda.</li>
+            </ul>
+        </div>
+
+        <div class="section-block">
+            <h2>◆ Kata Kunci Bab Ini</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الصِّحَّةُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الْجِسْمُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الرَّأْسُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">حُمَّى</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">صُدَاعٌ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">أُعَانِي مِنْ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الطَّبِيْبُ</span>
+                <span style="background: rgba(212,175,55,0.15); color: var(--gold-primary); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">الدَّوَاءُ</span>
+            </div>
+        </div>
+
+        <div class="section-block" style="text-align: center; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+            <h3 style="color: var(--gold-primary); margin-bottom: 1rem;">📝 Uji Pemahaman Anda</h3>
+            <p style="margin-bottom: 1.5rem;">Setelah mempelajari Pertemuan 5, ukur pemahaman Anda melalui uji formatif yang telah disiapkan. Jawab 10 pertanyaan pilihan ganda dan 5 esai seputar kosakata tubuh, keluhan kesehatan, dan adab berobat.</p>
+            <a href="uji-formatif-5.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                📝 Ikuti Uji Formatif Pertemuan 5 →
+            </a>
+        </div>
+
+        <!-- Chapter Navigation -->
+        <div class="chapter-nav">
+            <a href="4.html" class="btn btn-outline">← Pertemuan 4: Al-Mihan</a>
+            <a href="index.html" class="btn btn-secondary">📚 Daftar Pertemuan</a>
+            <a href="6.html" class="btn btn-primary">Pertemuan 6: Al-A'yad →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Bahasa Arab Kelas VII Semester Ganjil</h3>
+            <p>Buku daras untuk siswa MTs. Teori, praktik, dan aplikasi bahasa Arab komunikatif bernuansa Islami.</p>
+            
+            <div class="footer-links">
+                <a href="index.html">Beranda</a>
+                <a href="1.html">Pertemuan 1</a>
+                <a href="2.html">Pertemuan 2</a>
+                <a href="3.html">Pertemuan 3</a>
+                <a href="index.html#daftar-pertemuan">Daftar Pertemuan</a>
+                <a href="index.html#penulis">Penulis</a>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(212, 175, 55, 0.05); border-radius: 8px; display: inline-block;">
+                <p style="color: var(--gold-light); margin-bottom: 0.5rem;"><strong>Informasi Buku:</strong></p>
+                <p>Cetak — Rp 149.000 | E-Book — Rp 89.000</p>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <p>Kontak Penulis:</p>
+                <a href="mailto:armi1919wahid@gmail.com" style="color: var(--gold-primary); text-decoration: none;">armi1919wahid@gmail.com</a>
+                <p style="margin-top: 0.5rem; color: var(--text-secondary);">MTsS Diniyah Limo Jurai</p>
+            </div>
+
+            <p class="copyright">© 2026 ARMI WAHID., S.PdI. Hak cipta dilindungi undang-undang.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
